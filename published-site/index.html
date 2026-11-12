@@ -28,15 +28,12 @@
           },
           colors: {
             brand: {
-              purple: '#e2e8f0',
-              cyan: '#cbd5e1',
-              emerald: '#94a3b8',
-              gold: '#f8fafc',
-              accent: '#f1f5f9'
+              purple: '#8b5cf6',
+              cyan: '#22d3ee',
+              emerald: '#10b981',
+              gold: '#fbbf24',
+              accent: '#f97316'
             }
-          },
-          textColor: {
-            'brand-purple': 'rgb(226 232 240 / var(--tw-text-opacity, 1))'
           }
         }
       }
@@ -44,16 +41,68 @@
   </script>
 
   <style>
+    :root {
+      --bg-page: #020817;
+      --bg-surface: #0f172a;
+      --bg-surface-strong: #111827;
+      --bg-card: rgba(15, 23, 42, 0.94);
+      --bg-card-soft: rgba(15, 23, 42, 0.82);
+      --bg-elevated: rgba(30, 41, 59, 0.8);
+      --border-color: rgba(148, 163, 184, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-inverse: #0f172a;
+      --shadow-soft: 0 18px 40px rgba(2, 6, 23, 0.28);
+      --panel-gradient: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.9));
+      --brand-purple: #8b5cf6;
+      --brand-cyan: #22d3ee;
+      --brand-emerald: #10b981;
+      --brand-gold: #fbbf24;
+    }
+
+    html[data-theme="light"] {
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-strong: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.96);
+      --bg-card-soft: rgba(248, 250, 252, 0.9);
+      --bg-elevated: rgba(241, 245, 249, 0.88);
+      --border-color: rgba(15, 23, 42, 0.12);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --text-inverse: #f8fafc;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
+      --panel-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.92));
+    }
+
+    html[data-theme="dark"] {
+      --bg-page: #020817;
+      --bg-surface: #0f172a;
+      --bg-surface-strong: #111827;
+      --bg-card: rgba(15, 23, 42, 0.94);
+      --bg-card-soft: rgba(15, 23, 42, 0.82);
+      --bg-elevated: rgba(30, 41, 59, 0.8);
+      --border-color: rgba(148, 163, 184, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-inverse: #0f172a;
+      --shadow-soft: 0 18px 40px rgba(2, 6, 23, 0.28);
+      --panel-gradient: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.9));
+    }
+
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(148, 163, 184, 0.12);
     }
     ::-webkit-scrollbar-thumb {
-      background: #334155;
+      background: rgba(148, 163, 184, 0.45);
       border-radius: 4px;
     }
 
@@ -66,8 +115,29 @@
       overflow-x: hidden;
     }
 
+    html {
+      background: var(--bg-page);
+      color: var(--text-primary);
+      scroll-behavior: smooth;
+    }
+
     body {
       min-height: 100vh;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      letter-spacing: 0.01em;
+      line-height: 1.6;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    p, span, label, button, input, textarea, select {
+      line-height: 1.6;
     }
 
     img {
@@ -81,8 +151,112 @@
 
     /* Clean solid card borders & background styling */
     .glass-card {
-      background-color: rgba(18, 18, 18, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-soft);
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    html[data-theme="light"] .bg-slate-900,
+    html[data-theme="light"] .bg-slate-800,
+    html[data-theme="light"] .bg-slate-950,
+    html[data-theme="light"] .bg-slate-700,
+    html[data-theme="light"] .dark\:bg-slate-900,
+    html[data-theme="light"] .dark\:bg-slate-800,
+    html[data-theme="light"] .dark\:bg-slate-950,
+    html[data-theme="light"] .dark\:bg-slate-700,
+    html[data-theme="light"] .bg-slate-100,
+    html[data-theme="light"] .bg-slate-200 {
+      background-color: var(--bg-card-soft) !important;
+    }
+
+    html[data-theme="light"] .text-slate-100,
+    html[data-theme="light"] .text-slate-200,
+    html[data-theme="light"] .text-slate-300,
+    html[data-theme="light"] .text-slate-400,
+    html[data-theme="light"] .dark\:text-slate-100,
+    html[data-theme="light"] .dark\:text-slate-200,
+    html[data-theme="light"] .dark\:text-slate-300,
+    html[data-theme="light"] .dark\:text-slate-400,
+    html[data-theme="light"] .dark\:text-white,
+    html[data-theme="light"] .text-slate-500,
+    html[data-theme="light"] .text-slate-600 {
+      color: var(--text-primary) !important;
+    }
+
+    html[data-theme="light"] .border-slate-800,
+    html[data-theme="light"] .border-slate-700,
+    html[data-theme="light"] .border-slate-950,
+    html[data-theme="light"] .dark\:border-slate-800,
+    html[data-theme="light"] .dark\:border-slate-700,
+    html[data-theme="light"] .dark\:border-slate-950 {
+      border-color: var(--border-color) !important;
+    }
+
+    html[data-theme="light"] .bg-brand-purple\/20,
+    html[data-theme="light"] .bg-brand-purple\/10,
+    html[data-theme="light"] .bg-brand-emerald\/10,
+    html[data-theme="light"] .bg-brand-cyan\/10,
+    html[data-theme="light"] .bg-brand-gold\/10,
+    html[data-theme="light"] .bg-slate-800\/60,
+    html[data-theme="light"] .bg-slate-900\/60,
+    html[data-theme="light"] .bg-slate-900\/80,
+    html[data-theme="light"] .dark\:bg-slate-900\/60,
+    html[data-theme="light"] .dark\:bg-slate-900\/80 {
+      background-color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    html[data-theme="light"] .hero-panel {
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(241,245,249,0.94));
+    }
+
+    html[data-theme="light"] .chat-body-stream,
+    html[data-theme="light"] .chat-body,
+    html[data-theme="light"] .chat-input-row {
+      background: rgba(248, 250, 252, 0.9);
+    }
+
+    html[data-theme="light"] body,
+    html[data-theme="light"] #notif-dropdown,
+    html[data-theme="light"] .mobile-menu-item,
+    html[data-theme="light"] .chat-shell,
+    html[data-theme="light"] .chat-layout,
+    html[data-theme="light"] .chat-header,
+    html[data-theme="light"] .chat-input,
+    html[data-theme="light"] .chat-list-item {
+      color: var(--text-primary);
+    }
+
+    html[data-theme="light"] .nav-tab-btn {
+      background: transparent;
+    }
+
+    html[data-theme="light"] .nav-tab-btn:hover {
+      background: rgba(148, 163, 184, 0.12);
+    }
+
+    html[data-theme="light"] .nav-tab-btn.active {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+
+    #view-profile .glass-card,
+    #view-rankings .glass-card,
+    #view-cashout .glass-card,
+    #view-search .glass-card,
+    #view-tournaments .glass-card,
+    #view-auth .glass-card {
+      transition: all 0.25s ease;
+    }
+
+    .profile-stack {
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        letter-spacing: 0.005em;
+      }
     }
 
     .nav-tab-btn {
@@ -1317,6 +1491,7 @@
     // --- Application State ---
     const appState = {
       currentUser: {
+        id: "fita",
         gamertag: "Fita",
         email: "fita.ethiopia@esports-nexus.et",
         avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=300&auto=format&fit=crop&q=80",
@@ -1354,7 +1529,8 @@
       selectedGame: "EA FC 24",
       selectedGateway: "Telebirr (Ethio Telecom Mobile Money)",
       playerSort: "points-desc",
-      profileUser: null
+      profileUser: null,
+      profileUserId: null
     };
 
     const conversations = [
@@ -1399,15 +1575,30 @@
 
     let activeChatId = "c1";
 
+    function normalizePlayerId(player) {
+      const source = player && (player.id || player.gamertag || 'user');
+      return String(source).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'user';
+    }
+
     function getProfileUser() {
+      const requestedId = appState.profileUserId || (appState.profileUser && appState.profileUser.id);
+      if (requestedId) {
+        const fallbackUser = [...leaderboardData, ...competitorsData].find(player => normalizePlayerId(player) === normalizePlayerId({ id: requestedId })) || null;
+        if (fallbackUser && fallbackUser.gamertag !== appState.currentUser.gamertag) {
+          return createProfileUserFromPlayer(fallbackUser);
+        }
+      }
+
       return appState.profileUser || appState.currentUser;
     }
 
     function createProfileUserFromPlayer(player) {
       const games = (player.games || 'EA FC 24, PUBG Mobile').split(',').map(g => g.trim()).filter(Boolean);
       const normalized = games.length ? games : ['EA FC 24'];
+      const uniqueId = normalizePlayerId(player);
 
       return {
+        id: uniqueId,
         gamertag: player.gamertag,
         email: `${player.gamertag.toLowerCase()}@esports-nexus.et`,
         avatar: player.avatar,
@@ -1435,28 +1626,53 @@
       };
     }
 
+    function setProfileSelection(userId, addToUrl = true) {
+      const normalized = normalizePlayerId({ id: userId });
+      appState.profileUserId = normalized;
+      appState.profileUser = null;
+
+      if (addToUrl) {
+        const url = new URL(window.location.href);
+        if (normalized && normalized !== normalizePlayerId(appState.currentUser)) {
+          url.searchParams.set('profile', normalized);
+        } else {
+          url.searchParams.delete('profile');
+        }
+        window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+      }
+    }
+
     function openPlayerProfile(player) {
-      appState.profileUser = createProfileUserFromPlayer(player);
+      const profileId = normalizePlayerId(player || { id: appState.currentUser.id });
+      setProfileSelection(profileId, true);
+      navigateTo('profile');
+    }
+
+    function openPlayerProfileById(userId) {
+      const normalizedId = normalizePlayerId({ id: userId });
+      setProfileSelection(normalizedId, true);
       navigateTo('profile');
     }
 
     function backToMyProfile() {
       appState.profileUser = null;
+      appState.profileUserId = appState.currentUser.id;
+      setProfileSelection(appState.currentUser.id, false);
       navigateTo('profile');
     }
 
     // --- Ethiopian Esports Data Collections ---
     const leaderboardData = [
-      { rank: 1, gamertag: "Abebe_Pro", points: 4200, prize: "80,000 ETB", avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80", status: "Qualified #1" },
-      { rank: 2, gamertag: "Selam_Sniper", points: 3850, prize: "45,000 ETB", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80", status: "Qualified #2" },
-      { rank: 3, gamertag: "Tariku_FC", points: 3410, prize: "25,000 ETB", avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150&auto=format&fit=crop&q=80", status: "Qualified #3" },
-      { rank: 4, gamertag: "Dawi_Gamer", points: 3200, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
-      { rank: 5, gamertag: "Helen_MLBB", points: 3050, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
-      { rank: 6, gamertag: "Kaleb_X", points: 2910, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1628157582853-a796fa650a6a?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
-      { rank: 7, gamertag: "Fita", points: 2850, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10", isCurrent: true },
-      { rank: 8, gamertag: "Yared_PUBG", points: 2640, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
-      { rank: 9, gamertag: "Beti_Play", points: 2500, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
-      { rank: 10, gamertag: "Ermias_G", points: 2420, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" }
+      { id: "abebe-pro", rank: 1, gamertag: "Abebe_Pro", points: 4200, prize: "80,000 ETB", avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80", status: "Qualified #1" },
+      { id: "selam-sniper", rank: 2, gamertag: "Selam_Sniper", points: 3850, prize: "45,000 ETB", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80", status: "Qualified #2" },
+      { id: "tariku-fc", rank: 3, gamertag: "Tariku_FC", points: 3410, prize: "25,000 ETB", avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150&auto=format&fit=crop&q=80", status: "Qualified #3" },
+      { id: "dawi-gamer", rank: 4, gamertag: "Dawi_Gamer", points: 3200, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
+      { id: "helen-mlbb", rank: 5, gamertag: "Helen_MLBB", points: 3050, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
+      { id: "kaleb-x", rank: 6, gamertag: "Kaleb_X", points: 2910, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1628157582853-a796fa650a6a?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
+      { id: "fita", rank: 7, gamertag: "Fita", points: 2850, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10", isCurrent: true },
+      { id: "yared-pubg", rank: 8, gamertag: "Yared_PUBG", points: 2640, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
+      { id: "beti-play", rank: 9, gamertag: "Beti_Play", points: 2500, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" },
+      { id: "ermias-g", rank: 10, gamertag: "Ermias_G", points: 2420, prize: "Finalist Spot", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", status: "Qualified Top 10" }
     ];
 
     const leaderboardByGame = {
@@ -1518,11 +1734,11 @@
     ];
 
     const competitorsData = [
-      { gamertag: "Abebe_Pro", rank: 1, points: 4200, games: "EA FC 24, FIFA 23", avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80" },
-      { gamertag: "Selam_Sniper", rank: 2, points: 3850, games: "PUBG Mobile, CODM", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" },
-      { gamertag: "Tariku_FC", rank: 3, points: 3410, games: "EA FC 24, eFootball", avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150&auto=format&fit=crop&q=80" },
-      { gamertag: "Dawi_Gamer", rank: 4, points: 3200, games: "PUBG Mobile", avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=150&auto=format&fit=crop&q=80" },
-      { gamertag: "Fita", rank: 7, points: 2850, games: "EA FC 24, PUBG Mobile, eFootball", avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150&auto=format&fit=crop&q=80" }
+      { id: "abebe-pro", gamertag: "Abebe_Pro", rank: 1, points: 4200, games: "EA FC 24, FIFA 23", avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80" },
+      { id: "selam-sniper", gamertag: "Selam_Sniper", rank: 2, points: 3850, games: "PUBG Mobile, CODM", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" },
+      { id: "tariku-fc", gamertag: "Tariku_FC", rank: 3, points: 3410, games: "EA FC 24, eFootball", avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150&auto=format&fit=crop&q=80" },
+      { id: "dawi-gamer", gamertag: "Dawi_Gamer", rank: 4, points: 3200, games: "PUBG Mobile", avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=150&auto=format&fit=crop&q=80" },
+      { id: "fita", gamertag: "Fita", rank: 7, points: 2850, games: "EA FC 24, PUBG Mobile, eFootball", avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150&auto=format&fit=crop&q=80" }
     ];
 
     // --- Custom Dropdown Handlers ---
@@ -1598,27 +1814,24 @@
     });
 
     // --- Light/Dark Theme Toggle ---
-    function toggleTheme() {
+    function applyTheme(theme) {
       const html = document.documentElement;
+      const resolvedTheme = theme === 'light' ? 'light' : 'dark';
+      appState.theme = resolvedTheme;
+      html.setAttribute('data-theme', resolvedTheme);
+      html.classList.toggle('dark', resolvedTheme === 'dark');
+      html.classList.toggle('light', resolvedTheme === 'light');
       const themeIcon = document.getElementById('theme-toggle-icon');
-
-      if (appState.theme === 'dark') {
-        appState.theme = 'light';
-        html.classList.remove('dark');
-        html.classList.add('light');
-        html.style.backgroundColor = '#f8fafc';
-        html.style.color = '#0f172a';
-        themeIcon.className = "fa-solid fa-moon text-slate-700";
-        showToast("Switched to Light Mode");
-      } else {
-        appState.theme = 'dark';
-        html.classList.remove('light');
-        html.classList.add('dark');
-        html.style.backgroundColor = '#020617';
-        html.style.color = '#f8fafc';
-        themeIcon.className = "fa-solid fa-sun text-brand-gold";
-        showToast("Switched to Dark Mode");
+      if (themeIcon) {
+        themeIcon.className = resolvedTheme === 'light' ? 'fa-solid fa-moon text-slate-700' : 'fa-solid fa-sun text-brand-gold';
       }
+      localStorage.setItem('esport-theme', resolvedTheme);
+    }
+
+    function toggleTheme() {
+      const nextTheme = appState.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      showToast(nextTheme === 'light' ? 'Switched to Light Mode' : 'Switched to Dark Mode');
     }
 
     // --- Core Navigation Handler ---
@@ -1645,6 +1858,16 @@
           } transition-colors py-1 px-3 rounded-xl`;
         }
       });
+
+      if (tabName === 'profile') {
+        renderProfile();
+      }
+      if (tabName === 'cashout') {
+        renderCashout();
+      }
+      if (tabName === 'search') {
+        renderPlayers();
+      }
 
       if (window.innerWidth < 768) {
         toggleMobileMenu(false);
@@ -2123,9 +2346,11 @@
 
     // --- Render Discover / Search Players ---
     function renderPlayers() {
-      const searchVal = (document.getElementById('player-search-input').value || '').toLowerCase();
+      const searchValElement = document.getElementById('player-search-input');
+      const searchVal = (searchValElement ? searchValElement.value : '').toLowerCase();
       const sortVal = appState.playerSort;
       const grid = document.getElementById('players-grid');
+      if (!grid) return;
       grid.innerHTML = '';
 
       let filtered = competitorsData.filter(p => 
@@ -2143,7 +2368,8 @@
 
       filtered.forEach(p => {
         const card = document.createElement('div');
-        card.className = "glass-card rounded-2xl p-4 border border-slate-800 light:border-slate-300 space-y-3";
+        card.className = 'glass-card rounded-2xl p-4 border border-slate-800 light:border-slate-300 space-y-3 cursor-pointer hover:border-brand-purple/50 transition-all';
+        card.onclick = () => openPlayerProfileById(p.id);
         card.innerHTML = `
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -2165,10 +2391,10 @@
           </div>
 
           <div class="flex gap-2">
-            <button onclick="showToast('Friend request sent to ${p.gamertag}!')" class="flex-1 py-1.5 rounded-lg bg-slate-800 light:bg-slate-200 text-xs font-semibold text-slate-200 light:text-slate-800">
+            <button onclick="event.stopPropagation(); showToast('Friend request sent to ${p.gamertag}!')" class="flex-1 py-1.5 rounded-lg bg-slate-800 light:bg-slate-200 text-xs font-semibold text-slate-200 light:text-slate-800">
               <i class="fa-solid fa-user-plus mr-1 text-brand-purple"></i> Add
             </button>
-            <button onclick="openPlayerProfile(${JSON.stringify(p).replace(/"/g, '&quot;')})" class="flex-1 py-1.5 rounded-lg bg-brand-purple/20 border border-brand-purple/40 text-xs font-bold text-brand-purple">
+            <button onclick="event.stopPropagation(); openPlayerProfileById('${p.id}')" class="flex-1 py-1.5 rounded-lg bg-brand-purple/20 border border-brand-purple/40 text-xs font-bold text-brand-purple">
               View Profile
             </button>
           </div>
@@ -2343,7 +2569,25 @@
       }, 3000);
     }
 
+    function syncProfileFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const requestedProfile = params.get('profile');
+      if (requestedProfile) {
+        const player = [...leaderboardData, ...competitorsData].find(item => normalizePlayerId(item) === normalizePlayerId({ id: requestedProfile }));
+        if (player) {
+          appState.profileUserId = normalizePlayerId(player);
+          appState.profileUser = null;
+          return;
+        }
+      }
+      appState.profileUserId = null;
+      appState.profileUser = null;
+    }
+
     window.onload = function() {
+      const savedTheme = localStorage.getItem('esport-theme') || 'dark';
+      applyTheme(savedTheme);
+      syncProfileFromUrl();
       renderChatList();
       selectChat('c1');
       renderLeaderboard();
