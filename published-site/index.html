@@ -149,6 +149,396 @@
       padding-bottom: 6rem;
     }
 
+    .dashboard-shell {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 18px 18px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .desktop-sidebar {
+      position: sticky;
+      top: 18px;
+      width: 110px;
+      min-width: 110px;
+      height: calc(100vh - 36px);
+      padding: 14px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-radius: 28px;
+      background: rgba(10, 14, 28, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .sidebar-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 6px 4px 12px;
+    }
+
+    .sidebar-brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(139, 92, 246, 0.22));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(249, 115, 22, 0.32);
+      box-shadow: 0 12px 24px rgba(249, 115, 22, 0.18);
+    }
+
+    .sidebar-brand-text {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.12em;
+      font-size: 0.6rem;
+      color: var(--text-primary);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .sidebar-brand-sub {
+      display: block;
+      font-size: 0.48rem;
+      letter-spacing: 0.26em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .sidebar-main-group,
+    .sidebar-secondary-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 8px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      background: rgba(15, 23, 42, 0.42);
+      border-radius: 24px;
+      box-shadow: inset 0 1px 0 rgba(148, 163, 184, 0.07);
+    }
+
+    .sidebar-main-group {
+      flex: 1;
+      justify-content: flex-start;
+    }
+
+    .sidebar-secondary-group {
+      margin-top: auto;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .sidebar-nav-btn {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 18px;
+      padding: 0;
+      color: var(--text-muted);
+      background: transparent;
+      transition: all 0.22s ease;
+      position: relative;
+    }
+
+    .sidebar-nav-btn i {
+      font-size: 1.05rem;
+    }
+
+    .sidebar-nav-btn:hover {
+      background: rgba(148, 163, 184, 0.08);
+      border-color: rgba(148, 163, 184, 0.18);
+      color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    .sidebar-nav-btn.active {
+      background: linear-gradient(180deg, rgba(249, 115, 22, 0.22), rgba(249, 115, 22, 0.14));
+      border-color: rgba(249, 115, 22, 0.52);
+      color: #fbbf24;
+      box-shadow: 0 10px 18px rgba(249, 115, 22, 0.18);
+    }
+
+    .sidebar-footer {
+      padding-top: 2px;
+    }
+
+    .sidebar-theme-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.42);
+    }
+
+    .sidebar-theme-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      padding: 10px 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      background: rgba(148, 163, 184, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-theme-btn.active {
+      background: rgba(250, 204, 21, 0.14);
+      border-color: rgba(250, 204, 21, 0.28);
+      color: #fbbf24;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    html[data-theme='light'] .desktop-sidebar {
+      background: rgba(255, 255, 255, 0.92);
+      border-color: rgba(15, 23, 42, 0.08);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    html[data-theme='light'] .sidebar-main-group,
+    html[data-theme='light'] .sidebar-secondary-group,
+    html[data-theme='light'] .sidebar-theme-panel {
+      background: rgba(241, 245, 249, 0.92);
+      border-color: rgba(15, 23, 42, 0.06);
+    }
+
+    .dashboard-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .home-dashboard-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.75fr) minmax(300px, 0.8fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .home-main-column,
+    .home-side-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    .section-card {
+      border-radius: 26px;
+      padding: 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .panel-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .panel-heading h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .panel-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 9999px;
+      background: rgba(139,92,246,0.12);
+      border: 1px solid rgba(139,92,246,0.25);
+      color: #a78bfa;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .upcoming-list,
+    .game-spotlight-list,
+    .player-rail-list,
+    .stats-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mini-tournament-item,
+    .mini-game-item,
+    .mini-player-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      background: rgba(148, 163, 184, 0.04);
+    }
+
+    .mini-tournament-item img,
+    .mini-game-item img,
+    .mini-player-item img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .mini-item-copy {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mini-item-copy h4,
+    .mini-item-copy h5 {
+      margin: 0;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mini-item-copy p {
+      margin: 4px 0 0;
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .mini-item-copy .pill,
+    .mini-item-copy .muted-pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 4px 7px;
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    .mini-item-copy .pill {
+      background: rgba(16,185,129,0.12);
+      color: #34d399;
+      border: 1px solid rgba(16,185,129,0.25);
+    }
+
+    .mini-item-copy .muted-pill {
+      background: rgba(139,92,246,0.12);
+      color: #a78bfa;
+      border: 1px solid rgba(139,92,246,0.25);
+    }
+
+    .mini-item-action {
+      border: 1px solid rgba(139,92,246,0.3);
+      background: rgba(139,92,246,0.1);
+      color: #a78bfa;
+      font-size: 0.65rem;
+      font-weight: 800;
+      border-radius: 10px;
+      padding: 7px 10px;
+    }
+
+    .stat-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 14px;
+      border-radius: 18px;
+      border: 1px solid var(--border-color);
+      background: rgba(148,163,184,0.04);
+    }
+
+    .stat-card .label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .stat-card .value {
+      font-size: 1.2rem;
+      font-weight: 900;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--text-primary);
+    }
+
+    .stat-card .small {
+      font-size: 0.62rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 1180px) {
+      .home-dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .dashboard-shell {
+        padding: 14px 14px 0;
+      }
+
+      .desktop-sidebar {
+        display: none;
+      }
+
+      .dashboard-main {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section-card {
+        border-radius: 20px;
+        padding: 14px;
+      }
+
+      .panel-heading h3 {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+      }
+    }
+
     /* Clean solid card borders & background styling */
     .glass-card {
       background-color: var(--bg-card);
@@ -617,268 +1007,318 @@
   </style>
 </head>
 <body class="h-full flex flex-col antialiased bg-slate-950 text-slate-100 transition-colors duration-200 pb-24 font-sans dark:bg-slate-950 dark:text-slate-100">
-
-  <!-- ================= TOP HEADER BAR ================= -->
-  <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800/80 px-4 py-3 sm:px-6">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      
-      <!-- Top Left Avatar & Profile Quick-Access with Dynamic Level Progress Bar -->
-      <button onclick="navigateTo('profile')" class="flex items-center gap-2 sm:gap-3 group text-left focus:outline-none rounded-xl p-1 sm:p-1.5 transition-all hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-slate-200 min-w-0 shrink">
-        <div class="relative shrink-0">
-          <img id="header-avatar" src="favicon.svg" onerror="fallbackImage(event)" alt="User Avatar" class="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-brand-purple">
-          <span class="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-emerald rounded-full border-2 border-slate-950 dark:border-slate-950 light:border-white"></span>
+  <div class="dashboard-shell">
+    <aside class="desktop-sidebar glass-card">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-mark">
+          <img src="favicon.svg" alt="ኢ-Sport Ethiopia logo" class="w-7 h-7 rounded-lg object-cover">
         </div>
-        <div class="min-w-0">
-          <div class="flex items-center gap-1 sm:gap-1.5">
-            <span id="header-gamertag" class="font-display font-semibold text-xs sm:text-base text-slate-100 dark:text-slate-100 light:text-slate-900 truncate">Fita</span>
-            <span class="bg-brand-purple/20 text-brand-purple dark:text-purple-300 light:text-purple-800 text-[9px] sm:text-[10px] font-bold px-1 sm:px-1.5 py-0.5 rounded border border-brand-purple/40 shrink-0">ETH PRO</span>
-          </div>
-
-          <!-- Level Progress Bar & Points Widget -->
-          <div class="mt-0.5 sm:mt-1 flex items-center gap-1.5 sm:gap-2">
-            <!-- Level Tag -->
-            <span id="header-level-text" class="font-display font-black text-[9px] sm:text-[10px] bg-brand-gold text-slate-950 px-1 sm:px-1.5 py-0.2 rounded-md shrink-0">LVL 24</span>
-            
-            <!-- Dynamic Progress Bar -->
-            <div class="w-14 xs:w-20 sm:w-28 h-1.5 sm:h-2 bg-slate-800 light:bg-slate-300 rounded-full overflow-hidden border border-slate-700/60 light:border-slate-400 relative" title="Level Progress">
-              <div id="header-level-progress-bar" class="h-full bg-gradient-to-r from-brand-purple via-brand-cyan to-brand-gold rounded-full transition-all duration-500" style="width: 85%;"></div>
-            </div>
-
-            <!-- Points Display Next to Progress Bar -->
-            <span class="text-[10px] sm:text-xs font-bold text-slate-200 dark:text-slate-200 light:text-slate-800 flex items-center shrink-0">
-              <i class="fa-solid fa-bolt text-brand-gold mr-0.5 text-[9px] sm:text-[10px]"></i>
-              <span id="header-points">2,850</span>
-              <span class="hidden xs:inline text-[8px] sm:text-[9px] text-slate-400 light:text-slate-600 font-normal ml-0.5">/3,000</span>
-            </span>
-          </div>
-        </div>
-      </button>
-
-      <!-- App Logo Title -->
-      <div class="hidden md:flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')">
-        <img src="favicon.svg" alt="ኢ-Sport Ethiopia logo" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover border border-slate-300/60 bg-slate-200/95 shadow-lg">
-        <div>
-          <span class="font-display font-black text-lg sm:text-xl tracking-wide text-brand-purple dark:text-purple-400 light:text-purple-700">
-            ኢ-SPORT
-          </span>
-          <span class="text-[10px] font-bold block -mt-1 text-slate-400 light:text-slate-700 tracking-widest uppercase">ETHIOPIA</span>
+        <div class="sidebar-brand-text">
+          ኢ-SPORT
+          <span class="sidebar-brand-sub">ETHIOPIA</span>
         </div>
       </div>
 
-      <!-- Header Actions: Theme Toggle, Notifications & Play -->
-      <div class="flex items-center gap-1.5 sm:gap-2 relative shrink-0">
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-900 hover:bg-slate-700 light:hover:bg-slate-300 transition-colors text-sm" title="Open menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+      <div class="sidebar-main-group">
+        <nav class="sidebar-nav" aria-label="Sidebar Navigation">
+          <button class="sidebar-nav-btn active" data-target="home" onclick="navigateTo('home')" title="Home"><i class="fa-solid fa-house"></i></button>
+          <button class="sidebar-nav-btn" data-target="search" onclick="navigateTo('search')" title="Discover"><i class="fa-solid fa-compass"></i></button>
+          <button class="sidebar-nav-btn" data-target="tournaments" onclick="navigateTo('tournaments')" title="Tournaments"><i class="fa-solid fa-trophy"></i></button>
+          <button class="sidebar-nav-btn" data-target="tournaments" onclick="navigateTo('tournaments')" title="Games"><i class="fa-solid fa-gamepad"></i></button>
+          <button class="sidebar-nav-btn" data-target="rankings" onclick="navigateTo('rankings')" title="Leaderboard"><i class="fa-solid fa-chart-simple"></i></button>
+          <button class="sidebar-nav-btn" data-target="chat" onclick="navigateTo('chat')" title="Community"><i class="fa-solid fa-users"></i></button>
+          <button class="sidebar-nav-btn" data-target="chat" onclick="navigateTo('chat')" title="Messages"><i class="fa-solid fa-message"></i></button>
+          <button class="sidebar-nav-btn" data-target="profile" onclick="navigateTo('profile')" title="My Profile"><i class="fa-solid fa-user"></i></button>
+        </nav>
+      </div>
 
-        <!-- Theme Toggle Button -->
-        <button onclick="toggleTheme()" class="p-1.5 sm:p-2 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-900 hover:bg-slate-700 light:hover:bg-slate-300 transition-colors text-xs sm:text-sm" title="Toggle Light/Dark Theme">
-          <i id="theme-toggle-icon" class="fa-solid fa-sun text-brand-gold"></i>
-        </button>
+      <div class="sidebar-secondary-group">
+        <nav class="sidebar-nav" aria-label="Secondary Sidebar Navigation">
+          <button class="sidebar-nav-btn" data-target="auth" onclick="navigateTo('auth')" title="Settings"><i class="fa-solid fa-gear"></i></button>
+        </nav>
+      </div>
 
-        <!-- Notification Bell Button & Dropdown -->
-        <div class="relative">
-          <button onclick="toggleNotifications()" class="p-1.5 sm:p-2 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-900 hover:bg-slate-700 light:hover:bg-slate-300 transition-colors text-xs sm:text-sm relative" title="Notifications">
-            <i class="fa-solid fa-bell text-brand-cyan"></i>
-            <span id="notif-badge" class="absolute -top-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-brand-gold text-slate-950 font-black text-[8px] sm:text-[9px] rounded-full flex items-center justify-center">3</span>
+      <div class="sidebar-footer">
+        <div class="sidebar-theme-panel" aria-label="Theme switcher">
+          <button class="sidebar-theme-btn active" data-theme-option="light" title="Light mode" onclick="applyTheme('light')"><i class="fa-solid fa-sun"></i></button>
+          <button class="sidebar-theme-btn" data-theme-option="dark" title="Dark mode" onclick="applyTheme('dark')"><i class="fa-solid fa-moon"></i></button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <!-- ================= TOP HEADER BAR ================= -->
+      <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800/80 px-4 py-3 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          <button onclick="navigateTo('profile')" class="flex items-center gap-2 sm:gap-3 group text-left focus:outline-none rounded-xl p-1 sm:p-1.5 transition-all hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-slate-200 min-w-0 shrink">
+            <div class="relative shrink-0">
+              <img id="header-avatar" src="favicon.svg" onerror="fallbackImage(event)" alt="User Avatar" class="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-brand-purple">
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-emerald rounded-full border-2 border-slate-950 dark:border-slate-950 light:border-white"></span>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1 sm:gap-1.5">
+                <span id="header-gamertag" class="font-display font-semibold text-xs sm:text-base text-slate-100 dark:text-slate-100 light:text-slate-900 truncate">Fita</span>
+                <span class="bg-brand-purple/20 text-brand-purple dark:text-purple-300 light:text-purple-800 text-[9px] sm:text-[10px] font-bold px-1 sm:px-1.5 py-0.5 rounded border border-brand-purple/40 shrink-0">ETH PRO</span>
+              </div>
+              <div class="mt-0.5 sm:mt-1 flex items-center gap-1.5 sm:gap-2">
+                <span id="header-level-text" class="font-display font-black text-[9px] sm:text-[10px] bg-brand-gold text-slate-950 px-1 sm:px-1.5 py-0.2 rounded-md shrink-0">LVL 24</span>
+                <div class="w-14 xs:w-20 sm:w-28 h-1.5 sm:h-2 bg-slate-800 light:bg-slate-300 rounded-full overflow-hidden border border-slate-700/60 light:border-slate-400 relative" title="Level Progress">
+                  <div id="header-level-progress-bar" class="h-full bg-gradient-to-r from-brand-purple via-brand-cyan to-brand-gold rounded-full transition-all duration-500" style="width: 85%;"></div>
+                </div>
+                <span class="text-[10px] sm:text-xs font-bold text-slate-200 dark:text-slate-200 light:text-slate-800 flex items-center shrink-0">
+                  <i class="fa-solid fa-bolt text-brand-gold mr-0.5 text-[9px] sm:text-[10px]"></i>
+                  <span id="header-points">2,850</span>
+                  <span class="hidden xs:inline text-[8px] sm:text-[9px] text-slate-400 light:text-slate-600 font-normal ml-0.5">/3,000</span>
+                </span>
+              </div>
+            </div>
           </button>
 
-          <!-- Notification Dropdown Menu -->
-          <div id="notif-dropdown" class="hidden absolute right-0 mt-2 w-72 sm:w-96 max-w-[90vw] glass-card rounded-2xl border border-slate-800 light:border-slate-300 shadow-2xl p-3 sm:p-4 z-50 space-y-3 bg-slate-900/95 dark:bg-slate-900/95 light:bg-white">
-            <div class="flex items-center justify-between pb-2 border-b border-slate-800 light:border-slate-200">
-              <span class="font-display font-bold text-xs uppercase tracking-wider text-slate-100 dark:text-white light:text-slate-900 flex items-center gap-2">
-                <i class="fa-solid fa-bell text-brand-cyan"></i> Notifications
-              </span>
-              <button onclick="markAllNotificationsRead()" class="text-[11px] text-brand-purple hover:underline font-semibold">Mark as read</button>
+          <div class="hidden md:flex flex-1 max-w-xl items-center justify-center px-4">
+            <div class="relative w-full">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+              <input id="global-search" type="text" onkeydown="if (event.key === 'Enter') { const query = this.value.trim(); if (query) { document.getElementById('player-search-input').value = query; searchPlayers(); navigateTo('search'); } }" placeholder="Search games, players & teams..." class="w-full bg-slate-900/80 light:bg-slate-100 border border-slate-800 light:border-slate-300 rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-100 light:text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-purple">
+            </div>
+          </div>
+
+          <div class="flex items-center gap-1.5 sm:gap-2 relative shrink-0">
+            <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-900 hover:bg-slate-700 light:hover:bg-slate-300 transition-colors text-sm" title="Open menu">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <button onclick="toggleTheme()" class="p-1.5 sm:p-2 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-900 hover:bg-slate-700 light:hover:bg-slate-300 transition-colors text-xs sm:text-sm" title="Toggle Light/Dark Theme">
+              <i id="theme-toggle-icon" class="fa-solid fa-sun text-brand-gold"></i>
+            </button>
+
+            <div class="relative">
+              <button onclick="toggleNotifications()" class="p-1.5 sm:p-2 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-900 hover:bg-slate-700 light:hover:bg-slate-300 transition-colors text-xs sm:text-sm relative" title="Notifications">
+                <i class="fa-solid fa-bell text-brand-cyan"></i>
+                <span id="notif-badge" class="absolute -top-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-brand-gold text-slate-950 font-black text-[8px] sm:text-[9px] rounded-full flex items-center justify-center">3</span>
+              </button>
+
+              <div id="notif-dropdown" class="hidden absolute right-0 mt-2 w-72 sm:w-96 max-w-[90vw] glass-card rounded-2xl border border-slate-800 light:border-slate-300 shadow-2xl p-3 sm:p-4 z-50 space-y-3 bg-slate-900/95 dark:bg-slate-900/95 light:bg-white">
+                <div class="flex items-center justify-between pb-2 border-b border-slate-800 light:border-slate-200">
+                  <span class="font-display font-bold text-xs uppercase tracking-wider text-slate-100 dark:text-white light:text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-bell text-brand-cyan"></i> Notifications
+                  </span>
+                  <button onclick="markAllNotificationsRead()" class="text-[11px] text-brand-purple hover:underline font-semibold">Mark as read</button>
+                </div>
+
+                <div class="space-y-2 max-h-80 overflow-y-auto pr-1">
+                  <div class="p-2.5 rounded-xl bg-brand-gold/10 light:bg-amber-50 border border-brand-gold/30 space-y-1">
+                    <div class="flex items-center justify-between text-xs font-bold text-brand-gold dark:text-amber-400 light:text-amber-800">
+                      <span><i class="fa-solid fa-trophy mr-1"></i> Top 10 Grand Final Invitation</span>
+                      <span class="text-[9px] opacity-75">Just now</span>
+                    </div>
+                    <p class="text-xs text-slate-200 dark:text-slate-200 light:text-slate-800 leading-snug">
+                      Congratulations Fita! You qualified #7. You are officially invited to the <strong>Addis Ababa Grand Final Tournament</strong> at Skylight Hotel!
+                    </p>
+                  </div>
+
+                  <div class="p-2.5 rounded-xl bg-slate-800/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-300 space-y-1">
+                    <div class="flex items-center justify-between text-xs font-bold text-brand-cyan dark:text-cyan-400 light:text-cyan-800">
+                      <span><i class="fa-solid fa-calendar-star mr-1"></i> Upcoming Tournament Alert</span>
+                      <span class="text-[9px] text-slate-400">2h ago</span>
+                    </div>
+                    <p class="text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 leading-snug">
+                      The <strong>PUBG Mobile Ethiopia Championship</strong> starts tomorrow at 6:00 PM EAT. Check in opens 30 minutes prior.
+                    </p>
+                  </div>
+
+                  <div class="p-2.5 rounded-xl bg-slate-800/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-300 space-y-1">
+                    <div class="flex items-center justify-between text-xs font-bold text-brand-purple dark:text-purple-400 light:text-purple-800">
+                      <span><i class="fa-solid fa-hand-shake mr-1"></i> Welcome to ኢ-Sport Ethiopia</span>
+                      <span class="text-[9px] text-slate-400">1d ago</span>
+                    </div>
+                    <p class="text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 leading-snug">
+                      Welcome Fita! Start playing matches to accumulate tournament points and cash out winnings directly via Telebirr or CBE Birr.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="space-y-2 max-h-80 overflow-y-auto pr-1">
-              <div class="p-2.5 rounded-xl bg-brand-gold/10 light:bg-amber-50 border border-brand-gold/30 space-y-1">
-                <div class="flex items-center justify-between text-xs font-bold text-brand-gold dark:text-amber-400 light:text-amber-800">
-                  <span><i class="fa-solid fa-trophy mr-1"></i> Top 10 Grand Final Invitation</span>
-                  <span class="text-[9px] opacity-75">Just now</span>
-                </div>
-                <p class="text-xs text-slate-200 dark:text-slate-200 light:text-slate-800 leading-snug">
-                  Congratulations Fita! You qualified #7. You are officially invited to the <strong>Addis Ababa Grand Final Tournament</strong> at Skylight Hotel!
-                </p>
-              </div>
+            <button onclick="navigateTo('cashout')" class="hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-brand-emerald/20 hover:bg-brand-emerald/30 border border-brand-emerald/40 text-brand-emerald dark:text-emerald-400 light:text-emerald-700 text-xs font-bold transition-all">
+              <i class="fa-solid fa-wallet"></i>
+              <span id="header-balance">14,250 ETB</span>
+            </button>
 
-              <div class="p-2.5 rounded-xl bg-slate-800/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-300 space-y-1">
-                <div class="flex items-center justify-between text-xs font-bold text-brand-cyan dark:text-cyan-400 light:text-cyan-800">
-                  <span><i class="fa-solid fa-calendar-star mr-1"></i> Upcoming Tournament Alert</span>
-                  <span class="text-[9px] text-slate-400">2h ago</span>
-                </div>
-                <p class="text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 leading-snug">
-                  The <strong>PUBG Mobile Ethiopia Championship</strong> starts tomorrow at 6:00 PM EAT. Check in opens 30 minutes prior.
-                </p>
-              </div>
+            <button id="auth-btn" onclick="navigateTo('auth')" class="hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 light:hover:bg-slate-300 text-xs font-semibold border border-slate-700/60 light:border-slate-300 text-slate-200 dark:text-slate-200 light:text-slate-900">
+              <i class="fa-solid fa-user-lock text-brand-cyan dark:text-cyan-400 light:text-cyan-700"></i>
+              <span id="auth-btn-text">Account</span>
+            </button>
 
-              <div class="p-2.5 rounded-xl bg-slate-800/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-300 space-y-1">
-                <div class="flex items-center justify-between text-xs font-bold text-brand-purple dark:text-purple-400 light:text-purple-800">
-                  <span><i class="fa-solid fa-hand-shake mr-1"></i> Welcome to ኢ-Sport Ethiopia</span>
-                  <span class="text-[9px] text-slate-400">1d ago</span>
-                </div>
-                <p class="text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 leading-snug">
-                  Welcome Fita! Start playing matches to accumulate tournament points and cash out winnings directly via Telebirr or CBE Birr.
-                </p>
-              </div>
-            </div>
+            <button onclick="navigateTo('tournaments')" class="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-brand-purple hover:bg-purple-700 text-white text-xs sm:text-sm font-bold transition-all">
+              <i class="fa-solid fa-gamepad mr-1 sm:mr-1.5"></i> Play
+            </button>
           </div>
         </div>
 
-        <button onclick="navigateTo('cashout')" class="hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-brand-emerald/20 hover:bg-brand-emerald/30 border border-brand-emerald/40 text-brand-emerald dark:text-emerald-400 light:text-emerald-700 text-xs font-bold transition-all">
-          <i class="fa-solid fa-wallet"></i>
-          <span id="header-balance">14,250 ETB</span>
-        </button>
+        <div id="mobile-menu-panel" class="hidden md:hidden absolute left-0 right-0 top-full mt-2 mx-3 rounded-2xl border border-slate-800 light:border-slate-300 glass-card p-3 z-50">
+          <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
+            <button onclick="navigateTo('home'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Home</button>
+            <button onclick="navigateTo('rankings'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Rankings</button>
+            <button onclick="navigateTo('tournaments'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Tournaments</button>
+            <button onclick="navigateTo('cashout'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Cash Out</button>
+            <button onclick="navigateTo('search'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Discover</button>
+            <button onclick="navigateTo('chat'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Chat</button>
+            <button onclick="navigateTo('profile'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Profile</button>
+          </div>
+        </div>
+      </header>
 
-        <button id="auth-btn" onclick="navigateTo('auth')" class="hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 light:hover:bg-slate-300 text-xs font-semibold border border-slate-700/60 light:border-slate-300 text-slate-200 dark:text-slate-200 light:text-slate-900">
-          <i class="fa-solid fa-user-lock text-brand-cyan dark:text-cyan-400 light:text-cyan-700"></i>
-          <span id="auth-btn-text">Account</span>
-        </button>
-        
-        <button onclick="navigateTo('tournaments')" class="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-brand-purple hover:bg-purple-700 text-white text-xs sm:text-sm font-bold transition-all">
-          <i class="fa-solid fa-gamepad mr-1 sm:mr-1.5"></i> Play
-        </button>
-      </div>
+      <div id="toast-container" class="fixed top-16 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-    </div>
-    <div id="mobile-menu-panel" class="hidden md:hidden absolute left-0 right-0 top-full mt-2 mx-3 rounded-2xl border border-slate-800 light:border-slate-300 glass-card p-3 z-50">
-      <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
-        <button onclick="navigateTo('home'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Home</button>
-        <button onclick="navigateTo('rankings'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Rankings</button>
-        <button onclick="navigateTo('tournaments'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Tournaments</button>
-        <button onclick="navigateTo('cashout'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Cash Out</button>
-        <button onclick="navigateTo('search'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Discover</button>
-        <button onclick="navigateTo('chat'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Chat</button>
-        <button onclick="navigateTo('profile'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Profile</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Notification Toast Container -->
-  <div id="toast-container" class="fixed top-16 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
-
-
-  <!-- ================= MAIN CONTENT VIEWS CONTAINER ================= -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-6 pb-12">
+      <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-6 pb-12">
 
     <!-- 1. HOME VIEW -->
     <section id="view-home" class="view-panel space-y-8">
-      <!-- Welcome Hero Banner -->
-      <div class="hero-panel rounded-2xl glass-card border border-slate-800 light:border-slate-300 p-5 sm:p-8 lg:p-10 bg-slate-900 dark:bg-slate-900 light:bg-slate-100">
-        <div class="relative z-10 max-w-3xl space-y-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-purple/20 border border-brand-purple/40 text-brand-purple dark:text-purple-300 light:text-purple-700 text-[10px] sm:text-xs font-semibold uppercase tracking-widest">
-            <i class="fa-solid fa-flag text-brand-emerald"></i> Official ኢ-Sport Ethiopia League • Season 4
+      <div class="home-dashboard-layout">
+        <div class="home-main-column">
+          <div class="hero-panel rounded-2xl glass-card border border-slate-800 light:border-slate-300 p-5 sm:p-8 lg:p-10 bg-slate-900 dark:bg-slate-900 light:bg-slate-100">
+            <div class="relative z-10 max-w-3xl space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-purple/20 border border-brand-purple/40 text-brand-purple dark:text-purple-300 light:text-purple-700 text-[10px] sm:text-xs font-semibold uppercase tracking-widest">
+                <i class="fa-solid fa-flag text-brand-emerald"></i> Official ኢ-Sport Ethiopia League • Season 4
+              </div>
+              <h1 class="font-display font-black text-3xl xs:text-4xl sm:text-5xl tracking-tight text-slate-100 dark:text-white light:text-slate-900 leading-tight">
+                WELCOME TO <span class="text-brand-purple">ኢ-SPORT ETHIOPIA</span>, FITA!
+              </h1>
+              <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+                Join official competitive tournaments across Ethiopia in PUBG Mobile, EA FC 24, FIFA, and Mobile Legends. Collect tournament points to enter the <strong class="text-brand-gold">Top 10 Leaderboard</strong>. The top 3 champions win real cash payouts directly via <strong class="text-brand-emerald">Telebirr & CBE Birr</strong>!
+              </p>
+              <div class="pt-2 flex flex-wrap gap-3">
+                <button onclick="navigateTo('tournaments')" class="px-5 py-3 sm:px-6 rounded-xl bg-brand-purple hover:bg-purple-700 text-white font-display font-extrabold text-xs sm:text-sm transition-all shadow-lg shadow-brand-purple/20">
+                  BROWSE TOURNAMENTS <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+                <button onclick="navigateTo('rankings')" class="px-5 py-3 sm:px-6 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 text-slate-200 dark:text-slate-200 light:text-slate-800 font-display font-bold text-xs sm:text-sm transition-all">
+                  VIEW RANKINGS
+                </button>
+              </div>
+            </div>
+            <div class="pointer-events-none absolute right-4 top-4 hidden sm:block animate-float">
+              <div class="rounded-2xl border border-brand-purple/40 bg-slate-950/70 px-4 py-3 shadow-xl">
+                <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400">Season 4</div>
+                <div class="font-display text-xl text-brand-gold">150K ETB</div>
+              </div>
+            </div>
           </div>
-          <h1 class="font-display font-black text-3xl xs:text-4xl sm:text-5xl tracking-tight text-slate-100 dark:text-white light:text-slate-900 leading-tight">
-            WELCOME TO <span class="text-brand-purple">ኢ-SPORT ETHIOPIA</span>, FITA!
-          </h1>
-          <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-            Join official competitive tournaments across Ethiopia in PUBG Mobile, EA FC 24, FIFA, and Mobile Legends. Collect tournament points to enter the <strong class="text-brand-gold">Top 10 Leaderboard</strong>. The top 3 champions win real cash payouts directly via <strong class="text-brand-emerald">Telebirr & CBE Birr</strong>!
-          </p>
-          <div class="pt-2 flex flex-wrap gap-3">
-            <button onclick="navigateTo('tournaments')" class="px-5 py-3 sm:px-6 rounded-xl bg-brand-purple hover:bg-purple-700 text-white font-display font-extrabold text-xs sm:text-sm transition-all shadow-lg shadow-brand-purple/20">
-              BROWSE TOURNAMENTS <i class="fa-solid fa-arrow-right ml-2"></i>
-            </button>
-            <button onclick="navigateTo('rankings')" class="px-5 py-3 sm:px-6 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 text-slate-200 dark:text-slate-200 light:text-slate-800 font-display font-bold text-xs sm:text-sm transition-all">
-              VIEW RANKINGS
-            </button>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-brand-purple/10 border border-brand-purple/30 flex items-center justify-center text-brand-purple text-xl">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <div>
+                <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">150,000 ETB</div>
+                <div class="text-xs text-slate-400 light:text-slate-500">Season Prize Pool</div>
+              </div>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-brand-emerald/10 border border-brand-emerald/30 flex items-center justify-center text-brand-emerald text-xl">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <div>
+                <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">3,450+</div>
+                <div class="text-xs text-slate-400 light:text-slate-500">Ethiopian Gamers</div>
+              </div>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl">
+                <i class="fa-solid fa-mobile-screen"></i>
+              </div>
+              <div>
+                <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">Telebirr</div>
+                <div class="text-xs text-slate-400 light:text-slate-500">Instant Cashouts</div>
+              </div>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl">
+                <i class="fa-solid fa-crown"></i>
+              </div>
+              <div>
+                <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">Top 10</div>
+                <div class="text-xs text-slate-400 light:text-slate-500">Grand Final Spots</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h2 class="font-display font-bold text-xl text-slate-100 dark:text-white light:text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-bolt text-brand-gold"></i> FEATURED ETHIOPIAN LEAGUES
+              </h2>
+              <button onclick="navigateTo('tournaments')" class="text-xs font-semibold text-brand-purple hover:underline">
+                View All Tournaments →
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="home-featured-tournaments">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-6 space-y-6">
+            <h2 class="font-display font-bold text-lg text-slate-100 dark:text-white light:text-slate-900 text-center sm:text-left">
+              HOW TO PLAY & WIN IN ETHIOPIA
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="space-y-2 p-4 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 light:border-slate-300">
+                <div class="w-8 h-8 rounded-full bg-brand-purple text-white font-display font-black flex items-center justify-center text-sm mb-3">1</div>
+                <h3 class="font-bold text-slate-100 dark:text-white light:text-slate-900">Enter & Accumulate Points</h3>
+                <p class="text-xs text-slate-400 light:text-slate-600">Register with your Telebirr account, play in daily standard matches, and score leaderboard points.</p>
+              </div>
+
+              <div class="space-y-2 p-4 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 light:border-slate-300">
+                <div class="w-8 h-8 rounded-full bg-brand-cyan text-slate-950 font-display font-black flex items-center justify-center text-sm mb-3">2</div>
+                <h3 class="font-bold text-slate-100 dark:text-white light:text-slate-900">Reach the Top 10 Spot</h3>
+                <p class="text-xs text-slate-400 light:text-slate-600">Climb the local ladder! Only the top 10 highest point earners advance to the televised Ethiopian Finals.</p>
+              </div>
+
+              <div class="space-y-2 p-4 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 light:border-slate-300">
+                <div class="w-8 h-8 rounded-full bg-brand-gold text-slate-950 font-display font-black flex items-center justify-center text-sm mb-3">3</div>
+                <h3 class="font-bold text-slate-100 dark:text-white light:text-slate-900">Win Direct ETB Cash</h3>
+                <p class="text-xs text-slate-400 light:text-slate-600">The Top 3 finalists earn cash prizes (80,000 ETB, 45,000 ETB, and 25,000 ETB) deposited straight to Telebirr / CBE.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="pointer-events-none absolute right-4 top-4 hidden sm:block animate-float">
-          <div class="rounded-2xl border border-brand-purple/40 bg-slate-950/70 px-4 py-3 shadow-xl">
-            <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400">Season 4</div>
-            <div class="font-display text-xl text-brand-gold">150K ETB</div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Quick Stats Highlight Banner -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-          <div class="w-12 h-12 rounded-lg bg-brand-purple/10 border border-brand-purple/30 flex items-center justify-center text-brand-purple text-xl">
-            <i class="fa-solid fa-trophy"></i>
-          </div>
-          <div>
-            <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">150,000 ETB</div>
-            <div class="text-xs text-slate-400 light:text-slate-500">Season Prize Pool</div>
-          </div>
-        </div>
-
-        <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-          <div class="w-12 h-12 rounded-lg bg-brand-emerald/10 border border-brand-emerald/30 flex items-center justify-center text-brand-emerald text-xl">
-            <i class="fa-solid fa-users"></i>
-          </div>
-          <div>
-            <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">3,450+</div>
-            <div class="text-xs text-slate-400 light:text-slate-500">Ethiopian Gamers</div>
-          </div>
-        </div>
-
-        <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-          <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl">
-            <i class="fa-solid fa-mobile-screen"></i>
-          </div>
-          <div>
-            <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">Telebirr</div>
-            <div class="text-xs text-slate-400 light:text-slate-500">Instant Cashouts</div>
-          </div>
-        </div>
-
-        <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-          <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl">
-            <i class="fa-solid fa-crown"></i>
-          </div>
-          <div>
-            <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">Top 10</div>
-            <div class="text-xs text-slate-400 light:text-slate-500">Grand Final Spots</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Featured Active Tournaments Section -->
-      <div class="space-y-4">
-        <div class="flex items-center justify-between">
-          <h2 class="font-display font-bold text-xl text-slate-100 dark:text-white light:text-slate-900 flex items-center gap-2">
-            <i class="fa-solid fa-bolt text-brand-gold"></i> FEATURED ETHIOPIAN LEAGUES
-          </h2>
-          <button onclick="navigateTo('tournaments')" class="text-xs font-semibold text-brand-purple hover:underline">
-            View All Tournaments →
-          </button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="home-featured-tournaments">
-          <!-- Populated by JS -->
-        </div>
-      </div>
-
-      <!-- Platform How It Works Flow -->
-      <div class="glass-card rounded-2xl p-6 space-y-6">
-        <h2 class="font-display font-bold text-lg text-slate-100 dark:text-white light:text-slate-900 text-center sm:text-left">
-          HOW TO PLAY & WIN IN ETHIOPIA
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <div class="space-y-2 p-4 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 light:border-slate-300">
-            <div class="w-8 h-8 rounded-full bg-brand-purple text-white font-display font-black flex items-center justify-center text-sm mb-3">1</div>
-            <h3 class="font-bold text-slate-100 dark:text-white light:text-slate-900">Enter & Accumulate Points</h3>
-            <p class="text-xs text-slate-400 light:text-slate-600">Register with your Telebirr account, play in daily standard matches, and score leaderboard points.</p>
+        <aside class="home-side-column">
+          <div class="section-card">
+            <div class="panel-heading">
+              <h3>Upcoming Tournaments</h3>
+              <span class="panel-tag"><i class="fa-solid fa-calendar"></i> Live</span>
+            </div>
+            <div id="upcoming-tournaments-list" class="upcoming-list"></div>
           </div>
 
-          <div class="space-y-2 p-4 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 light:border-slate-300">
-            <div class="w-8 h-8 rounded-full bg-brand-cyan text-slate-950 font-display font-black flex items-center justify-center text-sm mb-3">2</div>
-            <h3 class="font-bold text-slate-100 dark:text-white light:text-slate-900">Reach the Top 10 Spot</h3>
-            <p class="text-xs text-slate-400 light:text-slate-600">Climb the local ladder! Only the top 10 highest point earners advance to the televised Ethiopian Finals.</p>
+          <div class="section-card">
+            <div class="panel-heading">
+              <h3>Most Played Games</h3>
+              <span class="panel-tag"><i class="fa-solid fa-fire"></i> Hot</span>
+            </div>
+            <div id="games-spotlight-list" class="game-spotlight-list"></div>
           </div>
 
-          <div class="space-y-2 p-4 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 light:border-slate-300">
-            <div class="w-8 h-8 rounded-full bg-brand-gold text-slate-950 font-display font-black flex items-center justify-center text-sm mb-3">3</div>
-            <h3 class="font-bold text-slate-100 dark:text-white light:text-slate-900">Win Direct ETB Cash</h3>
-            <p class="text-xs text-slate-400 light:text-slate-600">The Top 3 finalists earn cash prizes (80,000 ETB, 45,000 ETB, and 25,000 ETB) deposited straight to Telebirr / CBE.</p>
+          <div class="section-card">
+            <div class="panel-heading">
+              <h3>Top Players</h3>
+              <span class="panel-tag"><i class="fa-solid fa-crown"></i> Elite</span>
+            </div>
+            <div id="top-players-rail" class="player-rail-list"></div>
           </div>
 
-        </div>
+          <div class="section-card">
+            <div class="panel-heading">
+              <h3>Dashboard Stats</h3>
+              <span class="panel-tag"><i class="fa-solid fa-chart-column"></i> Demo</span>
+            </div>
+            <div id="dashboard-stat-grid" class="stats-grid"></div>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -1854,10 +2294,17 @@
       html.setAttribute('data-theme', resolvedTheme);
       html.classList.toggle('dark', resolvedTheme === 'dark');
       html.classList.toggle('light', resolvedTheme === 'light');
+
       const themeIcon = document.getElementById('theme-toggle-icon');
       if (themeIcon) {
         themeIcon.className = resolvedTheme === 'light' ? 'fa-solid fa-moon text-slate-700' : 'fa-solid fa-sun text-brand-gold';
       }
+
+      document.querySelectorAll('.sidebar-theme-btn').forEach((btn) => {
+        const isActive = btn.dataset.themeOption === resolvedTheme;
+        btn.classList.toggle('active', isActive);
+      });
+
       localStorage.setItem('esport-theme', resolvedTheme);
     }
 
@@ -1879,8 +2326,9 @@
         activePanel.classList.remove('hidden');
       }
 
+      const isLight = document.documentElement.classList.contains('light');
+
       document.querySelectorAll('.nav-tab-btn').forEach(btn => {
-        const isLight = document.documentElement.classList.contains('light');
         if (btn.getAttribute('data-target') === tabName) {
           btn.className = `nav-tab-btn active flex flex-col items-center gap-1 ${
             isLight ? 'text-purple-700' : 'text-brand-purple'
@@ -1889,6 +2337,14 @@
           btn.className = `nav-tab-btn flex flex-col items-center gap-1 ${
             isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-slate-200'
           } transition-colors py-1 px-3 rounded-xl`;
+        }
+      });
+
+      document.querySelectorAll('.sidebar-nav-btn').forEach(btn => {
+        if (btn.getAttribute('data-target') === tabName) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
         }
       });
 
@@ -2031,6 +2487,66 @@
     function filterChats() {
       const input = document.getElementById('chat-search');
       renderChatList(input ? input.value : '');
+    }
+
+    function renderHomeDashboardPanels() {
+      const upcomingList = document.getElementById('upcoming-tournaments-list');
+      const gamesList = document.getElementById('games-spotlight-list');
+      const topPlayersList = document.getElementById('top-players-rail');
+      const statGrid = document.getElementById('dashboard-stat-grid');
+
+      if (upcomingList) {
+        upcomingList.innerHTML = tournamentsData.slice(0, 4).map((t) => `
+          <div class="mini-tournament-item">
+            <img src="${safeImageUrl(t.image)}" onerror="fallbackImage(event)" alt="${t.title}">
+            <div class="mini-item-copy">
+              <h4>${t.title}</h4>
+              <p>${t.game} • ${t.date}</p>
+              <span class="pill">${t.status}</span>
+            </div>
+            <button class="mini-item-action" onclick="navigateTo('tournaments')">View</button>
+          </div>
+        `).join('');
+      }
+
+      if (gamesList) {
+        gamesList.innerHTML = [
+          { title: 'EA FC 24', subtitle: '1,420 active players', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&auto=format&fit=crop&q=80' },
+          { title: 'PUBG Mobile', subtitle: '990 squads online', image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&auto=format&fit=crop&q=80' },
+          { title: 'Mobile Legends', subtitle: '860 ranked players', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80' }
+        ].map((game) => `
+          <div class="mini-game-item">
+            <img src="${safeImageUrl(game.image)}" onerror="fallbackImage(event)" alt="${game.title}">
+            <div class="mini-item-copy">
+              <h5>${game.title}</h5>
+              <p>${game.subtitle}</p>
+              <span class="muted-pill">View</span>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      if (topPlayersList) {
+        topPlayersList.innerHTML = leaderboardData.slice(0, 4).map((player) => `
+          <div class="mini-player-item">
+            <img src="${safeImageUrl(player.avatar)}" onerror="fallbackImage(event)" alt="${player.gamertag}">
+            <div class="mini-item-copy">
+              <h5>${player.gamertag}</h5>
+              <p>Rank #${player.rank} • ${player.points.toLocaleString()} pts</p>
+            </div>
+            <button class="mini-item-action" onclick="openPlayerProfileById('${player.id}')">View</button>
+          </div>
+        `).join('');
+      }
+
+      if (statGrid) {
+        statGrid.innerHTML = `
+          <div class="stat-card"><span class="label">Registered Players</span><span class="value">3,450+</span><span class="small">Demo data</span></div>
+          <div class="stat-card"><span class="label">Active Tournaments</span><span class="value">18</span><span class="small">Demo data</span></div>
+          <div class="stat-card"><span class="label">Matches Played</span><span class="value">8,624</span><span class="small">Demo data</span></div>
+          <div class="stat-card"><span class="label">Games Supported</span><span class="value">12</span><span class="small">Demo data</span></div>
+        `;
+      }
     }
 
     // --- Render Leaderboard Page ---
@@ -2607,13 +3123,23 @@
       const params = new URLSearchParams(window.location.search);
       const requestedProfile = params.get('profile');
       if (requestedProfile) {
-        const player = [...leaderboardData, ...competitorsData].find(item => normalizePlayerId(item) === normalizePlayerId({ id: requestedProfile }));
+        const query = normalizePlayerId({ id: requestedProfile });
+        const player = [...leaderboardData, ...competitorsData].find((item) => {
+          const candidateIds = [
+            normalizePlayerId({ id: item.id }),
+            normalizePlayerId({ id: item.gamertag }),
+            normalizePlayerId(item)
+          ];
+          return candidateIds.includes(query);
+        });
+
         if (player) {
           appState.profileUserId = normalizePlayerId(player);
           appState.profileUser = null;
           return;
         }
       }
+
       appState.profileUserId = null;
       appState.profileUser = null;
     }
@@ -2622,6 +3148,7 @@
       const savedTheme = localStorage.getItem('esport-theme') || 'dark';
       applyTheme(savedTheme);
       syncProfileFromUrl();
+      renderHomeDashboardPanels();
       renderChatList();
       selectChat('c1');
       renderLeaderboard();
