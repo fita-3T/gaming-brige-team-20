@@ -198,19 +198,15 @@
     }
 
     /* Dropdowns must escape parent stacking/overflow constraints */
+    .dropdown-shell,
     #view-rankings .glass-card,
-    #view-rankings .glass-card > * {
-      overflow: visible;
+    #view-cashout .glass-card {
+      overflow: visible !important;
     }
-    .dropdown-shell {
-      position: relative;
-      z-index: 30;
-      isolation: isolate;
-      overflow: visible;
-    }
+    
     [id$="-dropdown-menu"] {
-      position: fixed;
-      z-index: 9999;
+      position: absolute;
+      z-index: 9999 !important;
       pointer-events: auto;
     }
 
@@ -503,8 +499,6 @@
     .hero-panel .rb-grid-glow { z-index:1; }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; } .rb-reveal { opacity:1; transform:none; } }
 
-
-
     /* Responsive layout pass: phone, tablet and desktop */
     :root { --safe-bottom: env(safe-area-inset-bottom, 0px); }
     body { min-width: 320px; }
@@ -640,7 +634,7 @@
       <!-- Top Left Avatar & Profile Quick-Access with Dynamic Level Progress Bar -->
       <button onclick="navigateTo('profile')" class="flex items-center gap-2 sm:gap-3 group text-left focus:outline-none rounded-xl p-1 sm:p-1.5 transition-all hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-slate-200 min-w-0 shrink">
         <div class="relative shrink-0">
-          <img id="header-avatar" src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150&auto=format&fit=crop&q=80" alt="User Avatar" class="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-brand-purple">
+          <img id="header-avatar" src="../unesery file/photo-1566492031773-4f4e44671857_98WY.avif" alt="User Avatar" class="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-brand-purple">
           <span class="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-emerald rounded-full border-2 border-slate-950 dark:border-slate-950 light:border-white"></span>
         </div>
         <div class="min-w-0">
@@ -671,7 +665,7 @@
 
       <!-- App Logo Title -->
       <div class="hidden md:flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')">
-        <img src="favicon%20(4).ico" alt="ኢ-Sport Ethiopia logo" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover border border-slate-700/80 bg-slate-900 shadow-lg">
+        <img src="favicon (4).ico" alt="ኢ-Sport Ethiopia logo" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover border border-slate-700/80 bg-slate-900 shadow-lg">
         <div>
           <span class="font-display font-black text-lg sm:text-xl tracking-wide text-brand-purple dark:text-purple-400 light:text-purple-700">
             ኢ-SPORT
@@ -971,16 +965,16 @@
         </div>
         
         <!-- CUSTOM JAVASCRIPT DROPDOWN FOR LEADERBOARD GAME SELECTOR -->
-        <div class="flex items-center gap-2 text-xs text-slate-300 light:text-slate-700 font-semibold relative z-20 dropdown-shell">
+        <div class="flex items-center gap-2 text-xs text-slate-300 light:text-slate-700 font-semibold dropdown-shell">
           <span>Choose title</span>
-          <div class="relative z-[80] min-w-[180px] dropdown-shell">
-            <button type="button" onclick="toggleDropdown('game-dropdown-menu', 'game-dropdown-arrow', event)" id="game-dropdown-btn" class="w-full flex items-center justify-between gap-3 bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl p-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-purple shadow-inner transition-all relative z-[90]">
+          <div class="relative dropdown-shell">
+            <button type="button" onclick="toggleDropdown('game-dropdown-menu', 'game-dropdown-arrow', event)" id="game-dropdown-btn" class="flex items-center justify-between gap-3 bg-slate-900 light:bg-white border border-slate-700 light:border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-purple shadow-inner transition-all min-w-[160px]">
               <span id="game-dropdown-selected" class="font-semibold">EA FC 24</span>
               <i class="fa-solid fa-chevron-down text-[10px] text-brand-purple transition-transform duration-200" id="game-dropdown-arrow"></i>
             </button>
 
             <!-- Custom Floating Rounded Menu -->
-            <div id="game-dropdown-menu" class="hidden left-0 right-0 mt-2 bg-slate-900 dark:bg-slate-900 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-2xl shadow-2xl p-1.5 space-y-1 backdrop-blur-md">
+            <div id="game-dropdown-menu" class="hidden absolute right-0 mt-2 w-48 bg-slate-900 dark:bg-slate-900 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-2xl shadow-2xl p-1.5 z-[9999] space-y-1 backdrop-blur-md">
               <div onclick="selectGameOption('EA FC 24')" class="custom-dropdown-option px-3 py-2 text-xs text-slate-200 dark:text-slate-200 light:text-slate-900 cursor-pointer flex items-center justify-between">
                 <span>EA FC 24</span>
               </div>
@@ -1028,7 +1022,7 @@
         <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 relative z-10 text-center sm:text-left">
           
           <!-- Profile Picture Avatar & Level Ranking Badge -->
-          <div class="relative group shrink-0">
+          <div class="relative group">
             <img id="profile-img" src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=300&auto=format&fit=crop&q=80" alt="Avatar" class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover border-2 border-brand-purple">
             <span id="profile-level-badge" class="absolute -top-2.5 -right-2.5 bg-brand-gold text-slate-950 font-display font-black text-xs px-2.5 py-0.5 rounded-full border-2 border-slate-950 shadow-md">
               LVL <span id="profile-level-num">24</span>
@@ -1188,7 +1182,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         <!-- Withdrawal Form Card -->
-        <div class="lg:col-span-2 glass-card rounded-2xl p-6 border border-slate-800 light:border-slate-300 space-y-5">
+        <div class="lg:col-span-2 glass-card rounded-2xl p-6 border border-slate-800 light:border-slate-300 space-y-5 dropdown-shell">
           <h2 class="font-display font-bold text-lg text-slate-100 dark:text-white light:text-slate-900 flex items-center gap-2">
             <i class="fa-solid fa-money-bill-wave text-brand-emerald"></i> REQUEST WITHDRAWAL
           </h2>
@@ -1216,16 +1210,16 @@
             </div>
 
             <!-- CUSTOM JAVASCRIPT DROPDOWN FOR BANK/PAYMENT GATEWAY SELECTOR -->
-            <div class="space-y-1">
+            <div class="space-y-1 dropdown-shell">
               <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Payment Gateway / Ethiopian Bank</label>
-              <div class="relative">
+              <div class="relative dropdown-shell">
                 <button type="button" onclick="toggleDropdown('gateway-dropdown-menu', 'gateway-dropdown-arrow', event)" id="gateway-dropdown-btn" class="w-full flex items-center justify-between gap-3 bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl p-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-emerald">
                   <span id="gateway-dropdown-selected" class="font-semibold">Telebirr (Ethio Telecom Mobile Money)</span>
                   <i class="fa-solid fa-chevron-down text-[10px] text-brand-emerald transition-transform duration-200" id="gateway-dropdown-arrow"></i>
                 </button>
 
                 <!-- Floating Options Menu -->
-                <div id="gateway-dropdown-menu" class="hidden absolute left-0 right-0 mt-2 bg-slate-900 dark:bg-slate-900 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-2xl shadow-2xl p-1.5 z-50 space-y-1 backdrop-blur-md max-h-56 overflow-y-auto">
+                <div id="gateway-dropdown-menu" class="hidden absolute left-0 right-0 mt-2 bg-slate-900 dark:bg-slate-900 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-2xl shadow-2xl p-1.5 z-[9999] space-y-1 backdrop-blur-md max-h-56 overflow-y-auto">
                   <div onclick="selectGatewayOption('Telebirr (Ethio Telecom Mobile Money)')" class="custom-dropdown-option px-3 py-2 text-xs text-slate-200 dark:text-slate-200 light:text-slate-900 cursor-pointer flex items-center justify-between">
                     <span>Telebirr (Ethio Telecom Mobile Money)</span>
                   </div>
@@ -1323,20 +1317,20 @@
       </div>
 
       <!-- Search Input & Filters -->
-      <div class="glass-card p-3 rounded-2xl border border-slate-800 light:border-slate-300 flex flex-col sm:flex-row gap-3">
+      <div class="glass-card p-3 rounded-2xl border border-slate-800 light:border-slate-300 flex flex-col sm:flex-row gap-3 dropdown-shell">
         <div class="relative flex-1">
           <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
           <input type="text" id="player-search-input" onkeyup="searchPlayers()" placeholder="Search player name or game (e.g. Fita, EA FC 24, PUBG)..." class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-100 light:text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-purple">
         </div>
         
         <!-- Custom Dropdown for Player Sorting -->
-        <div class="relative min-w-[180px]">
+        <div class="relative min-w-[180px] dropdown-shell">
           <button type="button" onclick="toggleDropdown('sort-dropdown-menu', 'sort-dropdown-arrow', event)" id="sort-dropdown-btn" class="w-full flex items-center justify-between gap-3 bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 text-slate-300 light:text-slate-800 text-xs rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-purple">
             <span id="sort-dropdown-selected">Highest Points First</span>
             <i class="fa-solid fa-chevron-down text-[10px] text-brand-purple transition-transform duration-200" id="sort-dropdown-arrow"></i>
           </button>
 
-          <div id="sort-dropdown-menu" class="hidden absolute right-0 mt-2 w-full bg-slate-900 dark:bg-slate-900 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-2xl shadow-2xl p-1.5 z-50 space-y-1 backdrop-blur-md">
+          <div id="sort-dropdown-menu" class="hidden absolute right-0 mt-2 w-full bg-slate-900 dark:bg-slate-900 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-2xl shadow-2xl p-1.5 z-[9999] space-y-1 backdrop-blur-md">
             <div onclick="selectSortOption('points-desc', 'Highest Points First')" class="custom-dropdown-option px-3 py-2 text-xs text-slate-200 dark:text-slate-200 light:text-slate-900 cursor-pointer flex items-center justify-between">
               <span>Highest Points First</span>
             </div>
@@ -1841,29 +1835,10 @@
       });
     }
 
-    function positionDropdownMenu(menuId, triggerId) {
-      const menu = document.getElementById(menuId);
-      const trigger = triggerId ? document.getElementById(triggerId) : null;
-      if (!menu || !trigger) return;
-
-      const width = Math.max(trigger.offsetWidth, menu.dataset.minWidth ? Number(menu.dataset.minWidth) : 180);
-      const rect = trigger.getBoundingClientRect();
-      const top = Math.min(rect.bottom + 8, window.innerHeight - (menu.offsetHeight || 220) - 12);
-      const left = Math.min(Math.max(12, rect.left), window.innerWidth - width - 12);
-
-      menu.style.position = 'fixed';
-      menu.style.left = `${left}px`;
-      menu.style.top = `${top}px`;
-      menu.style.right = 'auto';
-      menu.style.width = `${width}px`;
-      menu.style.zIndex = '9999';
-    }
-
     function toggleDropdown(menuId, arrowId, event) {
       if (event) event.stopPropagation();
       const menu = document.getElementById(menuId);
       const arrow = document.getElementById(arrowId);
-      const triggerId = menuId.replace('-menu', '-btn');
       if (!menu) return;
 
       const isClosed = menu.classList.contains('hidden');
@@ -1874,7 +1849,6 @@
 
       if (isClosed) {
         menu.classList.remove('hidden');
-        positionDropdownMenu(menuId, triggerId);
         const selectedId = menuId.replace('-menu', '-selected');
         const selectedValue = document.getElementById(selectedId)?.textContent.trim() || '';
         syncDropdownSelection(menuId, selectedValue);
@@ -1914,15 +1888,6 @@
         document.querySelectorAll('[id$="-dropdown-menu"]').forEach(m => m.classList.add('hidden'));
         document.querySelectorAll('[id$="-dropdown-arrow"]').forEach(a => a.style.transform = 'rotate(0deg)');
       }
-    });
-
-    window.addEventListener('resize', function() {
-      document.querySelectorAll('[id$="-dropdown-menu"]').forEach(menu => {
-        if (!menu.classList.contains('hidden')) {
-          const triggerId = menu.id.replace('-menu', '-btn');
-          positionDropdownMenu(menu.id, triggerId);
-        }
-      });
     });
 
     // --- Notification Menu Handlers ---
