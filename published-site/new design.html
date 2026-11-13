@@ -180,6 +180,7 @@
       padding-left: 1rem;
     }
 
+   /* Main chat styles (source lines 217–412) */
     /* Chat Section Aesthetics matching .glass-card */
     .chat-shell {
       background-color: rgba(18, 18, 18, 0.92);
@@ -440,6 +441,34 @@
       color: #f8fafc !important;
       border-color: #334155 !important;
     }
+    /* Responsive chat styles (source lines 527–530) */
+    .chat-layout { min-height:0; }
+    .chat-body-stream { min-height:12rem; max-height:55vh; overflow-y:auto; }
+    .chat-message .bubble { max-width:min(82%, 38rem); overflow-wrap:anywhere; }
+    .chat-layout > div { min-width:0; }
+
+/* Tablet chat styles (source lines 541–543) */
+      .chat-layout { min-height:32rem; }
+      .chat-layout > div:first-child { width:clamp(15rem, 28vw, 19rem); }
+      .view-panel .grid { gap:1rem; }
+
+/* Mobile chat styles (source lines 566–574) */
+      #view-chat .chat-layout { min-height:calc(100dvh - 13rem); }
+      #view-chat .chat-layout > div:first-child { width:100%; border-right:0; }
+      #view-chat #chat-main-panel { min-height:calc(100dvh - 13rem); }
+      #view-chat .chat-body-stream { max-height:none; min-height:0; flex:1; }
+      #view-chat .chat-layout.mobile-chat-open > div:first-child { display:none !important; }
+      #view-chat .chat-layout.mobile-chat-open #chat-main-panel { display:flex !important; }
+      #view-chat .chat-header, #view-chat .chat-body { padding:.85rem; }
+      #view-chat form { padding:.65rem; }
+      #view-chat #chat-input { min-width:0; }
+
+/* Small-phone chat styles (source line 609) */
+      #view-chat .chat-message .bubble { max-width:88%; }
+
+/* Small-tablet chat styles (source line 617) */
+      #view-chat .chat-layout { min-height:30rem; }
+
   </style>
 </head>
 <body class="h-full flex flex-col antialiased bg-slate-950 text-slate-100 transition-colors duration-200 pb-24 font-sans dark:bg-slate-950 dark:text-slate-100">
@@ -708,7 +737,7 @@
       </div>
     </section>
 
-    <!-- Chat Section -->
+   <!-- Chat Section -->
     <section id="view-chat" class="view-panel space-y-4 hidden">
       <div class="glass-card rounded-2xl overflow-hidden chat-layout flex flex-col md:flex-row border border-slate-800">
         <div class="w-full md:w-80 border-r border-slate-800 flex flex-col bg-slate-900/60 shrink-0">
@@ -1719,11 +1748,15 @@
         panel.classList.remove('hidden');
         panel.classList.add('flex');
       }
+      const layout = document.querySelector('#view-chat .chat-layout');
+      if (layout && window.innerWidth < 768) layout.classList.add('mobile-chat-open');
     }
 
     function closeMobileChat() {
       const panel = document.getElementById('chat-main-panel');
       if (panel) panel.classList.add('hidden');
+      const layout = document.querySelector('#view-chat .chat-layout');
+      if (layout) layout.classList.remove('mobile-chat-open');
     }
 
     function renderMessages() {
@@ -1776,6 +1809,7 @@
       const input = document.getElementById('chat-search');
       renderChatList(input ? input.value : '');
     }
+
 
     // --- Render Leaderboard Page ---
     function renderLeaderboard() {
