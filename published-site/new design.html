@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ኢ-Sport Ethiopia - Tournament & Arena</title>
-  <link rel="icon" type="image/x-icon" href="favicon%20(4).ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons -->
@@ -389,6 +389,33 @@
       .nav-tab-btn span {
         white-space: nowrap;
       }
+      /* Responsive chat styles (source lines 527–530) */
+    .chat-layout { min-height:0; }
+    .chat-body-stream { min-height:12rem; max-height:55vh; overflow-y:auto; }
+    .chat-message .bubble { max-width:min(82%, 38rem); overflow-wrap:anywhere; }
+    .chat-layout > div { min-width:0; }
+
+/* Tablet chat styles (source lines 541–543) */
+      .chat-layout { min-height:32rem; }
+      .chat-layout > div:first-child { width:clamp(15rem, 28vw, 19rem); }
+      .view-panel .grid { gap:1rem; }
+
+/* Mobile chat styles (source lines 566–574) */
+      #view-chat .chat-layout { min-height:calc(100dvh - 13rem); }
+      #view-chat .chat-layout > div:first-child { width:100%; border-right:0; }
+      #view-chat #chat-main-panel { min-height:calc(100dvh - 13rem); }
+      #view-chat .chat-body-stream { max-height:none; min-height:0; flex:1; }
+      #view-chat .chat-layout.mobile-chat-open > div:first-child { display:none !important; }
+      #view-chat .chat-layout.mobile-chat-open #chat-main-panel { display:flex !important; }
+      #view-chat .chat-header, #view-chat .chat-body { padding:.85rem; }
+      #view-chat form { padding:.65rem; }
+      #view-chat #chat-input { min-width:0; }
+
+/* Small-phone chat styles (source line 609) */
+      #view-chat .chat-message .bubble { max-width:88%; }
+
+/* Small-tablet chat styles (source line 617) */
+      #view-chat .chat-layout { min-height:30rem; }
     }
 
     @media (max-width: 640px) {
@@ -441,33 +468,7 @@
       color: #f8fafc !important;
       border-color: #334155 !important;
     }
-    /* Responsive chat styles (source lines 527–530) */
-    .chat-layout { min-height:0; }
-    .chat-body-stream { min-height:12rem; max-height:55vh; overflow-y:auto; }
-    .chat-message .bubble { max-width:min(82%, 38rem); overflow-wrap:anywhere; }
-    .chat-layout > div { min-width:0; }
-
-/* Tablet chat styles (source lines 541–543) */
-      .chat-layout { min-height:32rem; }
-      .chat-layout > div:first-child { width:clamp(15rem, 28vw, 19rem); }
-      .view-panel .grid { gap:1rem; }
-
-/* Mobile chat styles (source lines 566–574) */
-      #view-chat .chat-layout { min-height:calc(100dvh - 13rem); }
-      #view-chat .chat-layout > div:first-child { width:100%; border-right:0; }
-      #view-chat #chat-main-panel { min-height:calc(100dvh - 13rem); }
-      #view-chat .chat-body-stream { max-height:none; min-height:0; flex:1; }
-      #view-chat .chat-layout.mobile-chat-open > div:first-child { display:none !important; }
-      #view-chat .chat-layout.mobile-chat-open #chat-main-panel { display:flex !important; }
-      #view-chat .chat-header, #view-chat .chat-body { padding:.85rem; }
-      #view-chat form { padding:.65rem; }
-      #view-chat #chat-input { min-width:0; }
-
-/* Small-phone chat styles (source line 609) */
-      #view-chat .chat-message .bubble { max-width:88%; }
-
-/* Small-tablet chat styles (source line 617) */
-      #view-chat .chat-layout { min-height:30rem; }
+    
 
   </style>
 </head>
