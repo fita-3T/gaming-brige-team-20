@@ -523,16 +523,6 @@
 
       <!-- Header Actions: Theme Toggle, Notifications & Play -->
       <div class="flex items-center gap-1.5 sm:gap-2 relative shrink-0">
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-900 hover:bg-slate-700 light:hover:bg-slate-300 transition-colors text-sm" title="Open menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-
-        <!-- Theme Toggle Button -->
-        <button onclick="toggleTheme()" class="p-1.5 sm:p-2 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-900 hover:bg-slate-700 light:hover:bg-slate-300 transition-colors text-xs sm:text-sm" title="Toggle Light/Dark Theme">
-          <i id="theme-toggle-icon" class="fa-solid fa-sun text-brand-gold"></i>
-        </button>
-
         <!-- Notification Bell Button & Dropdown -->
         <div class="relative">
           <button onclick="toggleNotifications()" class="p-1.5 sm:p-2 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-900 hover:bg-slate-700 light:hover:bg-slate-300 transition-colors text-xs sm:text-sm relative" title="Notifications">
@@ -875,7 +865,12 @@
             <span id="profile-level-badge" class="absolute -top-2.5 -right-2.5 bg-brand-gold text-slate-950 font-display font-black text-xs px-2.5 py-0.5 rounded-full border-2 border-slate-950 shadow-md">
               LVL <span id="profile-level-num">24</span>
             </span>
-            <button onclick="triggerAvatarChange()" class="absolute inset-0 bg-slate-950/70 rounded-2xl flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs font-semibold text-white">
+            <button
+              type="button"
+              onclick="triggerAvatarChange()"
+              aria-label="Change profile picture"
+              class="absolute inset-0 bg-slate-950/70 rounded-2xl flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity text-xs font-semibold text-white cursor-pointer"
+            >     
               <i class="fa-solid fa-camera text-base mb-1"></i>
               <span>Change</span>
             </button>
