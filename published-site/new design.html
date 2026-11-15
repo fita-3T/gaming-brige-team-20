@@ -28,11 +28,11 @@
           },
           colors: {
             brand: {
-              purple: '#e2e8f0',
-              cyan: '#cbd5e1',
-              emerald: '#94a3b8',
-              gold: '#f8fafc',
-              accent: '#f1f5f9'
+              purple: '#39648D',   // Primary blue
+              cyan: '#7F7F7F',      // Accent gray
+              emerald: '#C62C1B',  // Secondary red
+              gold: '#7F7F7F',     // Accent gray
+              accent: '#7F7F7F'
             }
           },
           textColor: {
@@ -101,9 +101,9 @@
 
     .nav-tab-btn.active {
       transform: translateY(-4px) scale(1.06);
-      background-color: rgba(168, 85, 247, 0.12);
-      border-color: rgba(168, 85, 247, 0.32);
-      box-shadow: 0 10px 20px rgba(168, 85, 247, 0.28);
+      background-color: rgba(57, 100, 141, 0.12);
+      border-color: rgba(57, 100, 141, 0.32);
+      box-shadow: 0 10px 20px rgba(57, 100, 141, 0.28);
     }
 
     .hero-panel {
@@ -131,7 +131,7 @@
       top: -7rem;
       width: 26rem;
       height: 26rem;
-      background: radial-gradient(circle at 35% 35%, rgba(192, 132, 252, 0.8), rgba(147, 51, 234, 0.26) 30%, rgba(147, 51, 234, 0) 68%);
+      background: radial-gradient(circle at 35% 35%, rgba(57, 100, 141, 0.8), rgba(57, 100, 141, 0.26) 30%, rgba(57, 100, 141, 0) 68%);
       animation: orbFloatOne 8s ease-in-out infinite alternate;
     }
 
@@ -140,7 +140,7 @@
       bottom: -8rem;
       width: 24rem;
       height: 24rem;
-      background: radial-gradient(circle at 40% 40%, rgba(34, 211, 238, 0.75), rgba(34, 211, 238, 0.18) 28%, rgba(34, 211, 238, 0) 68%);
+      background: radial-gradient(circle at 40% 40%, rgba(127, 127, 127, 0.75), rgba(127, 127, 127, 0.18) 28%, rgba(127, 127, 127, 0) 68%);
       animation: orbFloatTwo 7s ease-in-out infinite alternate;
     }
 
@@ -175,7 +175,7 @@
       border-radius: 0.75rem;
     }
     .custom-dropdown-option:hover {
-      background-color: rgba(168, 85, 247, 0.2);
+      background-color: rgba(57, 100, 141, 0.2);
       color: #f8fafc;
       padding-left: 1rem;
     }
@@ -196,7 +196,7 @@
       justify-content: space-between;
       gap: 1rem;
       padding: 1rem 1.25rem;
-      background: linear-gradient(90deg, rgba(168, 85, 247, 0.12) 0%, rgba(34, 211, 238, 0.06) 100%);
+      background: linear-gradient(90deg, rgba(57, 100, 141, 0.12) 0%, rgba(127, 127, 127, 0.06) 100%);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
@@ -213,10 +213,10 @@
       align-items: center;
       justify-content: center;
       border-radius: 9999px;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.9), rgba(34, 211, 238, 0.8));
+      background: linear-gradient(135deg, rgba(57, 100, 141, 0.9), rgba(127, 127, 127, 0.8));
       color: white;
       font-weight: 800;
-      box-shadow: 0 8px 16px rgba(168, 85, 247, 0.25);
+      box-shadow: 0 8px 16px rgba(57, 100, 141, 0.25);
     }
 
     .chat-body {
@@ -256,10 +256,10 @@
     }
 
     .chat-message.outgoing .bubble {
-      background: linear-gradient(135deg, #9333ea, #3b82f6);
+      background: linear-gradient(135deg, #39648D, #39648D);
       color: white;
       border-bottom-right-radius: 0.35rem;
-      box-shadow: 0 4px 12px rgba(147, 51, 234, 0.2);
+      box-shadow: 0 4px 12px rgba(57, 100, 141, 0.2);
     }
 
     .chat-meta {
@@ -307,18 +307,18 @@
       font-size: 0.85rem;
     }
     .chat-input:focus {
-      border-color: #a855f7 !important;
+      border-color: #39648D !important;
     }
 
     .chat-send {
       border: none;
       border-radius: 0.75rem;
-      background: linear-gradient(135deg, #9333ea, #22d3ee);
+      background: linear-gradient(135deg, #39648D, #7F7F7F);
       color: white !important;
       font-weight: 700;
       padding: 0.75rem 1.25rem;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(34, 211, 238, 0.2);
+      box-shadow: 0 4px 15px rgba(127, 127, 127, 0.2);
       transition: opacity 0.2s;
     }
     .chat-send:hover {
@@ -339,8 +339,8 @@
     }
 
     .chat-list-item.active {
-      background-color: rgba(168, 85, 247, 0.14);
-      border-left: 3px solid #a855f7;
+      background-color: rgba(57, 100, 141, 0.14);
+      border-left: 3px solid #39648D;
     }
 
     .chat-body-stream {
@@ -361,10 +361,10 @@
     }
 
     .chat-message.outgoing .bubble {
-      background: linear-gradient(135deg, #9333ea, #3b82f6);
+      background: linear-gradient(135deg, #39648D, #39648D);
       color: white;
       border-bottom-right-radius: 0.25rem;
-      box-shadow: 0 4px 14px rgba(147, 51, 234, 0.25);
+      box-shadow: 0 4px 14px rgba(57, 100, 141, 0.25);
     }
 
     .chat-meta {
@@ -469,6 +469,188 @@
       border-color: #334155 !important;
     }
     
+
+  
+    /* =========================================================
+       IMAGE-MATCHED COLOR SYSTEM
+       Text: #E2E1EA | Background: #0B0F23 / #050711
+       Primary: #39648D | Secondary: #C62C1B | Accent: #7F7F7F
+       ========================================================= */
+    :root {
+      --theme-text: #E2E1EA;
+      --theme-bg: #0B0F23;
+      --theme-bg-deep: #050711;
+      --theme-primary: #39648D;
+      --theme-secondary: #C62C1B;
+      --theme-accent: #7F7F7F;
+      --theme-border: rgba(127,127,127,.28);
+      color-scheme: dark;
+    }
+    html, body { background-color: var(--theme-bg) !important; color: var(--theme-text) !important; }
+    body, .glass-card, .chat-shell {
+      background-color: var(--theme-bg) !important;
+      color: var(--theme-text);
+    }
+    .glass-card, .chat-shell { border-color: var(--theme-border) !important; }
+    header, .chat-header, .chat-input-row { background-color: var(--theme-bg-deep) !important; }
+    .hero-panel {
+      background: linear-gradient(110deg, rgba(5,7,17,.98), rgba(11,15,35,.94) 58%, rgba(57,100,141,.35)) !important;
+    }
+    .hero-panel::before {
+      background: radial-gradient(circle at 35% 35%, rgba(57,100,141,.55), rgba(57,100,141,.16) 35%, transparent 70%) !important;
+    }
+    .hero-panel::after {
+      background: radial-gradient(circle at 40% 40%, rgba(127,127,127,.38), rgba(127,127,127,.10) 30%, transparent 70%) !important;
+    }
+    /* Tailwind slate surfaces become the navy layers from the reference. */
+    [class*="bg-slate-950"], [class*="bg-slate-900"] { background-color: var(--theme-bg-deep) !important; }
+    [class*="bg-slate-800"], [class*="bg-slate-700"] { background-color: rgba(57,100,141,.20) !important; }
+    [class*="bg-slate-600"] { background-color: rgba(127,127,127,.22) !important; }
+    [class*="text-slate-100"], [class*="text-slate-200"], [class*="text-slate-300"],
+    [class*="text-white"] { color: var(--theme-text) !important; }
+    [class*="text-slate-400"], [class*="text-slate-500"], [class*="text-slate-600"] { color: #A6A6B2 !important; }
+    [class*="border-slate-"] { border-color: var(--theme-border) !important; }
+    [class*="divide-slate-"] > :not([hidden]) ~ :not([hidden]) { border-color: var(--theme-border) !important; }
+    /* Brand roles are restricted to the five colors in the reference. */
+    [class*="bg-brand-purple"], [class*="hover:bg-purple-"] { background-color: var(--theme-primary) !important; }
+    [class*="text-brand-purple"], [class*="text-purple-"], [class*="border-brand-purple"] { color: var(--theme-primary) !important; border-color: var(--theme-primary) !important; }
+    [class*="bg-brand-emerald"], [class*="hover:bg-emerald-"] { background-color: var(--theme-secondary) !important; }
+    [class*="text-brand-emerald"], [class*="text-emerald-"], [class*="border-brand-emerald"] { color: var(--theme-secondary) !important; border-color: var(--theme-secondary) !important; }
+    [class*="bg-brand-cyan"], [class*="bg-brand-gold"], [class*="bg-brand-accent"] { background-color: var(--theme-accent) !important; }
+    [class*="text-brand-cyan"], [class*="text-brand-gold"], [class*="text-brand-accent"],
+    [class*="text-cyan-"], [class*="text-amber-"] { color: var(--theme-accent) !important; }
+    [class*="border-brand-cyan"], [class*="border-brand-gold"], [class*="border-brand-accent"] { border-color: var(--theme-accent) !important; }
+    .nav-tab-btn.active, .chat-list-item.active { background: rgba(57,100,141,.24) !important; border-color: var(--theme-primary) !important; }
+    .nav-tab-btn:hover, .chat-list-item:hover { background: rgba(57,100,141,.16) !important; }
+    .chat-message.outgoing .bubble, .chat-send {
+      background: linear-gradient(135deg, var(--theme-primary), #294B6B) !important;
+      color: var(--theme-text) !important;
+    }
+    .chat-message.incoming .bubble, .bubble { background-color: rgba(127,127,127,.13) !important; border-color: var(--theme-border) !important; color: var(--theme-text) !important; }
+    input, textarea, select, .chat-input {
+      background-color: var(--theme-bg-deep) !important;
+      color: var(--theme-text) !important;
+      border-color: var(--theme-border) !important;
+    }
+    input:focus, textarea:focus, select:focus, .chat-input:focus { border-color: var(--theme-primary) !important; }
+    button { transition: background-color .18s ease, border-color .18s ease, color .18s ease; }
+    .custom-dropdown-option:hover { background-color: rgba(57,100,141,.24) !important; color: var(--theme-text) !important; }
+    ::-webkit-scrollbar-track { background: var(--theme-bg-deep) !important; }
+    ::-webkit-scrollbar-thumb { background: var(--theme-accent) !important; }
+
+    [class*="bg-slate-100"], [class*="bg-slate-200"], [class*="bg-slate-300"] { background-color: rgba(127,127,127,.16) !important; }
+    [class*="text-slate-700"], [class*="text-slate-800"], [class*="text-slate-900"], [class*="text-slate-950"],
+    [class*="text-black"] { color: var(--theme-text) !important; }
+    [class*="border-slate-100"], [class*="border-slate-200"], [class*="border-slate-300"] { border-color: var(--theme-border) !important; }
+
+
+    /* =========================================================
+       ACCESSIBILITY / CONTRAST FIXES
+       Keep the existing navy, blue, red and gray visual identity,
+       while making text and icons readable on dark surfaces.
+       ========================================================= */
+    :root {
+      --theme-text: #E9EAF2;
+      --theme-primary-readable: #9CCBFA;
+      --theme-secondary-readable: #FF8176;
+      --theme-accent-readable: #D2D4DE;
+      --theme-muted-readable: #B7BBCB;
+    }
+
+    /* Brand-colored text and icons were too dark on navy cards. */
+    [class*="text-brand-purple"],
+    [class*="text-purple-"],
+    [class*="text-brand-cyan"],
+    [class*="text-cyan-"],
+    [class*="text-brand-gold"],
+    [class*="text-amber-"] {
+      color: var(--theme-primary-readable) !important;
+    }
+
+    [class*="text-brand-emerald"],
+    [class*="text-emerald-"],
+    [class*="text-red-"],
+    [class*="text-rose-"] {
+      color: var(--theme-secondary-readable) !important;
+    }
+
+    /* Muted labels remain muted, but are no longer too dim. */
+    [class*="text-slate-400"],
+    [class*="text-slate-500"],
+    [class*="text-slate-600"],
+    [class*="text-gray-400"],
+    [class*="text-gray-500"] {
+      color: var(--theme-muted-readable) !important;
+    }
+
+    /* Ensure icons inherit a readable foreground unless they have
+       an explicit semantic brand color handled above. */
+    i, svg {
+      opacity: 1;
+    }
+
+    /* Text on filled brand buttons must be light, not near-black. */
+    button[class*="bg-brand-"],
+    a[class*="bg-brand-"],
+    [role="button"][class*="bg-brand-"] {
+      color: #FFFFFF !important;
+    }
+
+    button[class*="bg-brand-"] i,
+    a[class*="bg-brand-"] i,
+    [role="button"][class*="bg-brand-"] i {
+      color: #FFFFFF !important;
+    }
+
+    /* Preserve readable text inside colored badges and status chips. */
+    [class*="bg-brand-purple/"],
+    [class*="bg-brand-cyan/"],
+    [class*="bg-brand-gold/"],
+    [class*="bg-brand-accent/"] {
+      color: var(--theme-primary-readable) !important;
+    }
+
+    [class*="bg-brand-emerald/"] {
+      color: var(--theme-secondary-readable) !important;
+    }
+
+    /* Chat, form controls, placeholders and dropdown items. */
+    input, textarea, select, option,
+    .chat-input, .custom-dropdown-option {
+      color: #F1F3FA !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #AEB4C5 !important;
+      opacity: 1 !important;
+    }
+
+    /* Improve contrast for tiny metadata and inactive navigation. */
+    .chat-meta,
+    .text-\\[9px\\],
+    .text-\\[10px\\],
+    .text-\\[11px\\] {
+      text-shadow: 0 1px 1px rgba(0,0,0,.35);
+    }
+
+    /* Keep outgoing chat messages and primary actions crisp. */
+    .chat-message.outgoing .bubble,
+    .chat-send,
+    .nav-tab-btn.active {
+      color: #FFFFFF !important;
+    }
+
+    /* Keyboard focus remains clearly visible. */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2px solid #9CCBFA !important;
+      outline-offset: 2px;
+    }
 
   </style>
 </head>
@@ -969,6 +1151,100 @@
     </section>
 
 
+
+    <!-- PUBLIC PLAYER PROFILE VIEW -->
+    <section id="view-player-profile" class="view-panel space-y-6 hidden">
+      <div class="flex items-center justify-between gap-3">
+        <button onclick="navigateTo('search')" class="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-2.5 text-sm font-semibold text-slate-200 hover:border-brand-purple hover:text-white transition-colors">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to players</span>
+        </button>
+        <span class="rounded-full border border-brand-purple/40 bg-brand-purple/15 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand-purple">
+          Player profile
+        </span>
+      </div>
+
+      <div class="relative overflow-hidden rounded-3xl border border-slate-700/80 bg-slate-900/80 p-5 sm:p-8">
+        <div class="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-brand-purple/15 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-24 left-1/3 h-52 w-52 rounded-full bg-brand-emerald/10 blur-3xl"></div>
+        <div class="relative flex flex-col items-center gap-5 text-center sm:flex-row sm:items-start sm:text-left">
+          <div class="relative shrink-0">
+            <img id="public-player-avatar" src="" alt="Player avatar" class="h-28 w-28 rounded-3xl border-2 border-brand-purple object-cover shadow-xl sm:h-32 sm:w-32">
+            <span class="absolute -bottom-2 -right-2 inline-flex h-8 min-w-8 items-center justify-center rounded-xl border-2 border-slate-950 bg-brand-purple px-2 text-xs font-black text-white">
+              #<span id="public-player-rank-badge">—</span>
+            </span>
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="mb-2 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+              <span class="rounded-full border border-brand-emerald/40 bg-brand-emerald/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                <i class="fa-solid fa-circle-check mr-1"></i> Community player
+              </span>
+              <span class="rounded-full border border-slate-600 bg-slate-800/80 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-300">
+                Ethiopia
+              </span>
+            </div>
+            <h1 id="public-player-name" class="break-words font-display text-3xl font-black text-white sm:text-4xl">Player name</h1>
+            <p class="mt-2 max-w-2xl text-sm leading-relaxed text-slate-300">
+              Competitive player in the ኢ-Sport Ethiopia community. Explore their games, ranking, and leaderboard points.
+            </p>
+            <div class="mt-5 flex flex-wrap justify-center gap-2 sm:justify-start">
+              <button id="public-player-add-btn" type="button" class="rounded-xl bg-brand-purple px-4 py-2.5 text-xs font-extrabold text-white shadow-lg shadow-brand-purple/20 transition hover:brightness-110">
+                <i class="fa-solid fa-user-plus mr-1.5"></i> Add friend
+              </button>
+              <button type="button" onclick="navigateTo('rankings')" class="rounded-xl border border-slate-600 bg-slate-800/80 px-4 py-2.5 text-xs font-bold text-slate-200 transition hover:border-brand-purple hover:text-white">
+                <i class="fa-solid fa-ranking-star mr-1.5"></i> View leaderboard
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div class="glass-card rounded-2xl border border-slate-700 p-5">
+          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <i class="fa-solid fa-ranking-star text-brand-purple"></i> National rank
+          </div>
+          <div class="mt-3 font-display text-3xl font-black text-white">#<span id="public-player-rank">—</span></div>
+          <p class="mt-1 text-xs text-slate-400">Current listed position</p>
+        </div>
+        <div class="glass-card rounded-2xl border border-slate-700 p-5">
+          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <i class="fa-solid fa-bolt text-brand-gold"></i> League points
+          </div>
+          <div id="public-player-points" class="mt-3 font-display text-3xl font-black text-white">0</div>
+          <p class="mt-1 text-xs text-slate-400">Points shown on the player list</p>
+        </div>
+        <div class="glass-card rounded-2xl border border-slate-700 p-5">
+          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <i class="fa-solid fa-gamepad text-brand-emerald"></i> Games
+          </div>
+          <div id="public-player-game-count" class="mt-3 font-display text-3xl font-black text-white">0</div>
+          <p class="mt-1 text-xs text-slate-400">Listed competitive titles</p>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl border border-slate-700 p-5 sm:p-6">
+        <div class="mb-4 flex items-center justify-between gap-3">
+          <div>
+            <h2 class="font-display text-lg font-black text-white">Games & specialties</h2>
+            <p class="mt-1 text-xs text-slate-400">Games this player is listed as playing</p>
+          </div>
+          <i class="fa-solid fa-gamepad text-xl text-brand-purple"></i>
+        </div>
+        <div id="public-player-games" class="grid grid-cols-1 gap-3 sm:grid-cols-2"></div>
+      </div>
+
+      <div class="flex flex-col gap-2 rounded-2xl border border-slate-700 bg-slate-900/60 p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h3 class="text-sm font-bold text-white">Want to compete?</h3>
+          <p class="mt-1 text-xs text-slate-400">Explore tournaments and find your next match.</p>
+        </div>
+        <button onclick="navigateTo('tournaments')" class="rounded-xl bg-brand-emerald px-4 py-2.5 text-xs font-extrabold text-slate-950 transition hover:brightness-110">
+          Explore tournaments <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </div>
+    </section>
+
     <!-- 4. CASH OUT / WITHDRAWAL VIEW -->
     <section id="view-cashout" class="view-panel space-y-6 hidden">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -1379,7 +1655,8 @@
       selectedGame: "EA FC 24",
       selectedGateway: "Telebirr (Ethio Telecom Mobile Money)",
       playerSort: "points-desc",
-      profileUser: null
+      profileUser: null,
+      publicPlayer: null
     };
 
     const conversations = [
@@ -1461,8 +1738,78 @@
     }
 
     function openPlayerProfile(player) {
-      appState.profileUser = createProfileUserFromPlayer(player);
-      navigateTo('profile');
+      if (!player) return;
+
+      // Keep the signed-in user's private account page separate.
+      if (player.gamertag === appState.currentUser.gamertag) {
+        appState.profileUser = null;
+        navigateTo('profile');
+        return;
+      }
+
+      appState.publicPlayer = player;
+      renderPublicPlayerProfile(player);
+      navigateTo('player-profile');
+    }
+
+    function renderPublicPlayerProfile(player) {
+      const name = String(player.gamertag || 'Unknown player');
+      const games = String(player.games || 'EA FC 24, PUBG Mobile')
+        .split(',')
+        .map(game => game.trim())
+        .filter(Boolean);
+
+      const avatar = document.getElementById('public-player-avatar');
+      const nameEl = document.getElementById('public-player-name');
+      const rankEl = document.getElementById('public-player-rank');
+      const rankBadge = document.getElementById('public-player-rank-badge');
+      const pointsEl = document.getElementById('public-player-points');
+      const countEl = document.getElementById('public-player-game-count');
+      const gamesEl = document.getElementById('public-player-games');
+      const addBtn = document.getElementById('public-player-add-btn');
+
+      if (avatar) {
+        avatar.src = player.avatar || '';
+        avatar.alt = `${name} profile picture`;
+        avatar.onerror = function () {
+          this.onerror = null;
+          this.src = 'https://placehold.co/256x256/111827/9ca3af?text=Player';
+        };
+      }
+      if (nameEl) nameEl.textContent = name;
+      if (rankEl) rankEl.textContent = Number(player.rank || 0).toLocaleString();
+      if (rankBadge) rankBadge.textContent = Number(player.rank || 0).toLocaleString();
+      if (pointsEl) pointsEl.textContent = Number(player.points || 0).toLocaleString();
+      if (countEl) countEl.textContent = games.length.toString();
+
+      if (gamesEl) {
+        gamesEl.replaceChildren();
+        games.forEach((game, index) => {
+          const card = document.createElement('div');
+          card.className = 'flex items-center gap-3 rounded-xl border border-slate-700 bg-slate-950/50 p-3';
+          const iconWrap = document.createElement('div');
+          iconWrap.className = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-purple/15 text-brand-purple';
+          const icon = document.createElement('i');
+          icon.className = `fa-solid ${index % 2 === 0 ? 'fa-gamepad' : 'fa-trophy'}`;
+          iconWrap.appendChild(icon);
+
+          const details = document.createElement('div');
+          details.className = 'min-w-0';
+          const title = document.createElement('div');
+          title.className = 'truncate text-sm font-bold text-slate-100';
+          title.textContent = game;
+          const subtitle = document.createElement('div');
+          subtitle.className = 'mt-0.5 text-[10px] text-slate-400';
+          subtitle.textContent = 'Competitive title';
+          details.append(title, subtitle);
+          card.append(iconWrap, details);
+          gamesEl.appendChild(card);
+        });
+      }
+
+      if (addBtn) {
+        addBtn.onclick = () => showToast(`Friend request sent to ${name}!`);
+      }
     }
 
     function backToMyProfile() {
