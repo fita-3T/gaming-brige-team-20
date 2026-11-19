@@ -652,6 +652,20 @@
       outline-offset: 2px;
     }
 
+  
+    /* Live Stream Center */
+    .stream-category{border:1px solid rgba(148,163,184,.18);background:rgba(15,23,42,.65);border-radius:.75rem;padding:.7rem .5rem;color:#cbd5e1;font-size:.7rem;font-weight:700;transition:all .18s ease}
+    .stream-category:hover,.stream-category:focus-visible{border-color:var(--theme-primary);background:rgba(57,100,141,.2);color:#fff}
+    .stream-card{min-width:0;overflow:hidden;border:1px solid rgba(148,163,184,.16);border-radius:1rem;background:rgba(15,23,42,.78);transition:transform .2s ease,border-color .2s ease,background .2s ease}
+    .stream-card:hover{transform:translateY(-3px);border-color:rgba(156,203,250,.55);background:rgba(20,29,48,.95)}
+    .stream-thumb{position:relative;display:flex;aspect-ratio:16/9;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,#172554,#111827 55%,#312e81)}
+    .stream-thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,6,23,.6),transparent 60%)}
+    .stream-thumb>*{position:relative;z-index:1}
+    .stream-live-pill{position:absolute;left:.65rem;top:.65rem;z-index:2;border-radius:.35rem;background:#dc2626;padding:.25rem .45rem;color:white;font-size:.58rem;font-weight:900;letter-spacing:.12em}
+    .stream-demo-pill{position:absolute;right:.65rem;top:.65rem;z-index:2;border-radius:.35rem;background:rgba(2,6,23,.8);padding:.25rem .45rem;color:#cbd5e1;font-size:.55rem;font-weight:800}
+    @media(max-width:480px){#view-streams .stream-card{border-radius:.85rem}#view-streams #stream-watch-panel{padding:.75rem}}
+    @media(prefers-reduced-motion:reduce){.stream-card,.stream-category{transition:none!important}}
+
   </style>
 </head>
 <body class="h-full flex flex-col antialiased bg-slate-950 text-slate-100 transition-colors duration-200 pb-24 font-sans dark:bg-slate-950 dark:text-slate-100">
@@ -728,7 +742,7 @@
                   <span class="text-[9px] opacity-75">Just now</span>
                 </div>
                 <p class="text-xs text-slate-200 dark:text-slate-200 light:text-slate-800 leading-snug">
-                  Congratulations Fita! You qualified #7. You are officially invited to the <strong>Addis Ababa Grand Final Tournament</strong> at Skylight Hotel!
+                  Congratulations Fita! You qualified #7 in this demo leaderboard. Tournament invitations are simulated.
                 </p>
               </div>
 
@@ -748,7 +762,7 @@
                   <span class="text-[9px] text-slate-400">1d ago</span>
                 </div>
                 <p class="text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 leading-snug">
-                  Welcome Fita! Start playing matches to accumulate tournament points and cash out winnings directly via Telebirr or CBE Birr.
+                  Welcome Fita! Explore demo tournaments, player rankings, and community features. All balances and transactions are simulated.
                 </p>
               </div>
             </div>
@@ -757,7 +771,7 @@
 
         <button onclick="navigateTo('cashout')" class="hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-brand-emerald/20 hover:bg-brand-emerald/30 border border-brand-emerald/40 text-brand-emerald dark:text-emerald-400 light:text-emerald-700 text-xs font-bold transition-all">
           <i class="fa-solid fa-wallet"></i>
-          <span id="header-balance">14,250 ETB</span>
+          <span id="header-balance">DEMO · 14,250 ETB</span>
         </button>
 
         <button id="auth-btn" onclick="navigateTo('auth')" class="hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 light:hover:bg-slate-300 text-xs font-semibold border border-slate-700/60 light:border-slate-300 text-slate-200 dark:text-slate-200 light:text-slate-900">
@@ -776,6 +790,7 @@
         <button onclick="navigateTo('home'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Home</button>
         <button onclick="navigateTo('rankings'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Rankings</button>
         <button onclick="navigateTo('tournaments'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Tournaments</button>
+        <button onclick="navigateTo('streams'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 text-slate-200 px-3 py-2"><i class="fa-solid fa-tower-broadcast mr-1 text-red-400"></i> Live Stream</button>
         <button onclick="navigateTo('cashout'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Cash Out</button>
         <button onclick="navigateTo('search'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Discover</button>
         <button onclick="navigateTo('chat'); toggleMobileMenu(false);" class="mobile-menu-item rounded-xl bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 px-3 py-2">Chat</button>
@@ -803,7 +818,7 @@
             WELCOME TO <span class="text-brand-purple">ኢ-SPORT ETHIOPIA</span>, FITA!
           </h1>
           <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-            Join official competitive tournaments across Ethiopia in PUBG Mobile, EA FC 24, FIFA, and Mobile Legends. Collect tournament points to enter the <strong class="text-brand-gold">Top 10 Leaderboard</strong>. The top 3 champions win real cash payouts directly via <strong class="text-brand-emerald">Telebirr & CBE Birr</strong>!
+            Join official competitive tournaments across Ethiopia in PUBG Mobile, EA FC 24, FIFA, and Mobile Legends. Collect tournament points to enter the <strong class="text-brand-gold">Top 10 Leaderboard</strong>. Prize amounts and wallet activity are simulated for this demonstration; no real payments are processed.
           </p>
           <div class="pt-2 flex flex-wrap gap-3">
             <button onclick="navigateTo('tournaments')" class="px-5 py-3 sm:px-6 rounded-xl bg-brand-purple hover:bg-purple-700 text-white font-display font-extrabold text-xs sm:text-sm transition-all shadow-lg shadow-brand-purple/20">
@@ -830,7 +845,7 @@
           </div>
           <div>
             <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">150,000 ETB</div>
-            <div class="text-xs text-slate-400 light:text-slate-500">Season Prize Pool</div>
+            <div class="text-xs text-slate-400 light:text-slate-500">Simulated season prize pool</div>
           </div>
         </div>
 
@@ -850,7 +865,7 @@
           </div>
           <div>
             <div class="text-2xl font-display font-bold text-slate-100 dark:text-white light:text-slate-900">Telebirr</div>
-            <div class="text-xs text-slate-400 light:text-slate-500">Instant Cashouts</div>
+            <div class="text-xs text-slate-400 light:text-slate-500">Simulated wallet only</div>
           </div>
         </div>
 
@@ -891,7 +906,7 @@
           <div class="space-y-2 p-4 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 light:border-slate-300">
             <div class="w-8 h-8 rounded-full bg-brand-purple text-white font-display font-black flex items-center justify-center text-sm mb-3">1</div>
             <h3 class="font-bold text-slate-100 dark:text-white light:text-slate-900">Enter & Accumulate Points</h3>
-            <p class="text-xs text-slate-400 light:text-slate-600">Register with your Telebirr account, play in daily standard matches, and score leaderboard points.</p>
+            <p class="text-xs text-slate-400 light:text-slate-600">Use a demo profile, explore sample matches, and view simulated leaderboard points.</p>
           </div>
 
           <div class="space-y-2 p-4 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 light:border-slate-300">
@@ -903,7 +918,7 @@
           <div class="space-y-2 p-4 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 light:border-slate-300">
             <div class="w-8 h-8 rounded-full bg-brand-gold text-slate-950 font-display font-black flex items-center justify-center text-sm mb-3">3</div>
             <h3 class="font-bold text-slate-100 dark:text-white light:text-slate-900">Win Direct ETB Cash</h3>
-            <p class="text-xs text-slate-400 light:text-slate-600">The Top 3 finalists earn cash prizes (80,000 ETB, 45,000 ETB, and 25,000 ETB) deposited straight to Telebirr / CBE.</p>
+            <p class="text-xs text-slate-400 light:text-slate-600">Top-three prize amounts are fictional examples for this prototype. No cash prizes or transfers are provided.</p>
           </div>
 
         </div>
@@ -974,7 +989,7 @@
           TOP 10 ARENA ROADMAP
         </h1>
         <p class="text-xs sm:text-sm text-slate-400 light:text-slate-600 max-w-xl mx-auto">
-          Ranks 1 to 10 qualify for the Addis Ababa Grand Finale. Top 3 champions share the <span class="text-brand-gold font-bold">150,000 ETB Prize Pool</span>.
+          Ranks 1 to 10 qualify for the Addis Ababa Grand Finale. Top 3 positions are shown with simulated demo prize values.
         </p>
       </div>
 
@@ -1081,7 +1096,7 @@
               </div>
 
               <button onclick="navigateTo('cashout')" class="px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-emerald-600 text-slate-950 font-display font-black text-xs transition-all flex items-center gap-2 shadow-sm">
-                <i class="fa-solid fa-money-bill-transfer text-sm"></i> CASH OUT EARNINGS
+                <i class="fa-solid fa-money-bill-transfer text-sm"></i> DEMO CASH-OUT SIMULATOR
               </button>
             </div>
           </div>
@@ -1250,10 +1265,10 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span class="text-xs font-bold uppercase tracking-widest text-brand-emerald px-3 py-1 rounded-full bg-brand-emerald/20 border border-brand-emerald/40">
-            Instant Payout Desk
+            DEMO WALLET · SIMULATED
           </span>
-          <h1 class="font-display font-black text-2xl sm:text-3xl text-slate-100 dark:text-white light:text-slate-900 mt-1">CASH OUT EARNINGS</h1>
-          <p class="text-xs sm:text-sm text-slate-400 light:text-slate-600">Transfer your tournament winnings directly to Telebirr, CBE, or any Ethiopian Bank.</p>
+          <h1 class="font-display font-black text-2xl sm:text-3xl text-slate-100 dark:text-white light:text-slate-900 mt-1">DEMO CASH-OUT SIMULATOR</h1>
+          <p class="text-xs sm:text-sm text-slate-400 light:text-slate-600">Explore a simulated withdrawal workflow. No bank details are collected and no payments are processed.</p>
         </div>
 
         <button onclick="navigateTo('profile')" class="self-start sm:self-auto px-3.5 py-2 rounded-xl bg-slate-800 light:bg-slate-200 text-xs font-bold text-slate-200 light:text-slate-800 border border-slate-700 light:border-slate-300">
@@ -1264,21 +1279,21 @@
       <!-- Balance Summary Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="glass-card p-4 rounded-2xl border border-brand-emerald/40 bg-brand-emerald/5">
-          <div class="text-xs text-slate-400 light:text-slate-600 uppercase font-semibold">Available Balance</div>
+          <div class="text-xs text-slate-400 light:text-slate-600 uppercase font-semibold">Demo Available Balance</div>
           <div class="font-display font-black text-2xl sm:text-3xl text-brand-emerald dark:text-emerald-400 light:text-emerald-700 mt-1" id="cashout-available-balance">14,250 ETB</div>
-          <div class="text-[10px] text-slate-400 light:text-slate-500 mt-1"><i class="fa-solid fa-bolt text-brand-gold mr-1"></i> Ready for withdrawal</div>
+          <div class="text-[10px] text-slate-400 light:text-slate-500 mt-1"><i class="fa-solid fa-bolt text-brand-gold mr-1"></i> Demo balance only</div>
         </div>
 
         <div class="glass-card p-4 rounded-2xl border border-slate-800 light:border-slate-300">
-          <div class="text-xs text-slate-400 light:text-slate-600 uppercase font-semibold">Pending Cashouts</div>
+          <div class="text-xs text-slate-400 light:text-slate-600 uppercase font-semibold">Demo Pending Requests</div>
           <div class="font-display font-black text-2xl sm:text-3xl text-brand-gold dark:text-amber-400 light:text-amber-700 mt-1" id="cashout-pending-balance">1,500 ETB</div>
-          <div class="text-[10px] text-slate-400 light:text-slate-500 mt-1"><i class="fa-solid fa-clock mr-1"></i> Processing via CBE Birr</div>
+          <div class="text-[10px] text-slate-400 light:text-slate-500 mt-1"><i class="fa-solid fa-clock mr-1"></i> Simulated request status</div>
         </div>
 
         <div class="glass-card p-4 rounded-2xl border border-slate-800 light:border-slate-300">
-          <div class="text-xs text-slate-400 light:text-slate-600 uppercase font-semibold">Total Lifetime Cashout</div>
+          <div class="text-xs text-slate-400 light:text-slate-600 uppercase font-semibold">Demo Total Withdrawn</div>
           <div class="font-display font-black text-2xl sm:text-3xl text-slate-100 dark:text-white light:text-slate-900 mt-1" id="cashout-total-withdrawn">32,000 ETB</div>
-          <div class="text-[10px] text-slate-400 light:text-slate-500 mt-1"><i class="fa-solid fa-circle-check text-brand-emerald mr-1"></i> Verified Payouts</div>
+          <div class="text-[10px] text-slate-400 light:text-slate-500 mt-1"><i class="fa-solid fa-circle-check text-brand-emerald mr-1"></i> Demo history only</div>
         </div>
       </div>
 
@@ -1287,7 +1302,7 @@
         <!-- Withdrawal Form Card -->
         <div class="lg:col-span-2 glass-card rounded-2xl p-6 border border-slate-800 light:border-slate-300 space-y-5">
           <h2 class="font-display font-bold text-lg text-slate-100 dark:text-white light:text-slate-900 flex items-center gap-2">
-            <i class="fa-solid fa-money-bill-wave text-brand-emerald"></i> REQUEST WITHDRAWAL
+            <i class="fa-solid fa-money-bill-wave text-brand-emerald"></i> CREATE DEMO REQUEST
           </h2>
 
           <form id="cashout-form" onsubmit="handleCashoutSubmit(event)" class="space-y-4">
@@ -1314,7 +1329,7 @@
 
             <!-- CUSTOM JAVASCRIPT DROPDOWN FOR BANK/PAYMENT GATEWAY SELECTOR -->
             <div class="space-y-1">
-              <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Payment Gateway / Ethiopian Bank</label>
+              <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Demo payment-method label</label>
               <div class="relative">
                 <button type="button" onclick="toggleDropdown('gateway-dropdown-menu', 'gateway-dropdown-arrow', event)" id="gateway-dropdown-btn" class="w-full flex items-center justify-between gap-3 bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl p-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-emerald">
                   <span id="gateway-dropdown-selected" class="font-semibold">Telebirr (Ethio Telecom Mobile Money)</span>
@@ -1348,23 +1363,23 @@
             <!-- Account / Phone Details -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div class="space-y-1">
-                <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Account / Phone Number</label>
-                <input type="text" id="cashout-account" required placeholder="e.g. 100029384810 or +251 91..." class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl p-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-emerald">
+                <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Demo reference label (optional)</label>
+                <input type="text" id="cashout-account" placeholder="Optional fictional reference" class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl p-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-emerald">
               </div>
 
               <div class="space-y-1">
-                <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Account Holder Name</label>
-                <input type="text" id="cashout-holder" required placeholder="Fita (Matches Bank Record)" class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl p-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-emerald">
+                <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Demo display name (optional)</label>
+                <input type="text" id="cashout-holder" placeholder="Optional demo name" class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl p-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-emerald">
               </div>
             </div>
 
             <div class="p-3 rounded-xl bg-slate-900/50 light:bg-slate-100 border border-slate-800 light:border-slate-300 text-[11px] text-slate-400 light:text-slate-600 flex items-center gap-2">
               <i class="fa-solid fa-shield-halved text-brand-emerald text-sm"></i>
-              <span>Payouts to Telebirr and CBE Birr are verified within 15–30 minutes during business hours. Zero transaction fees.</span>
+              <span>This is a local prototype only. Enter fictional demo labels if needed; never enter real bank, phone, or account information.</span>
             </div>
 
             <button type="submit" class="w-full py-3 rounded-xl bg-brand-emerald hover:bg-emerald-600 text-slate-950 font-display font-black text-xs transition-all uppercase tracking-wider">
-              CONFIRM WITHDRAWAL REQUEST
+              CREATE SIMULATED REQUEST
             </button>
 
           </form>
@@ -1376,7 +1391,7 @@
             <h3 class="font-display font-bold text-sm text-slate-100 dark:text-white light:text-slate-900 flex items-center gap-2">
               <i class="fa-solid fa-clock-rotate-left text-brand-purple"></i> TRANSACTION HISTORY
             </h3>
-            <span class="text-[10px] text-slate-400 light:text-slate-600">ETB Log</span>
+            <span class="text-[10px] text-slate-400 light:text-slate-600">Demo log</span>
           </div>
 
           <div id="cashout-history-list" class="space-y-3">
@@ -1408,6 +1423,14 @@
       <!-- Tournament Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="tournaments-grid">
         <!-- Populated by JS -->
+      </div>
+
+      <div class="glass-card rounded-2xl border border-slate-800 p-4 sm:p-5 space-y-4">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div><p class="text-[10px] font-black uppercase tracking-[.2em] text-red-400">Tournament broadcasts</p><h2 class="mt-1 font-display text-lg font-black text-white">Watch the competition live</h2><p class="mt-1 text-xs text-slate-400">Tournament-linked streams, match commentary, and community chat.</p></div>
+          <button onclick="navigateTo('streams')" class="rounded-xl border border-brand-purple/40 px-3 py-2 text-xs font-bold text-brand-purple hover:bg-brand-purple/10">Open Stream Arena <i class="fa-solid fa-arrow-right ml-1"></i></button>
+        </div>
+        <div id="tournament-broadcast-list" class="grid grid-cols-1 gap-3 md:grid-cols-2"></div>
       </div>
     </section>
 
@@ -1470,7 +1493,7 @@
 
         <div class="text-center space-y-1 mb-6">
           <h2 id="auth-title" class="font-display font-black text-xl text-slate-100 dark:text-white light:text-slate-900">WELCOME BACK, GAMER</h2>
-          <p id="auth-subtitle" class="text-xs text-slate-400 light:text-slate-600">Enter your credentials or Telebirr registered phone to continue.</p>
+          <p id="auth-subtitle" class="text-xs text-slate-400 light:text-slate-600">Choose a demo username or email to preview the account experience.</p>
         </div>
 
         <form id="auth-form" onsubmit="handleAuthSubmit(event)" class="space-y-4">
@@ -1486,23 +1509,13 @@
 
           <!-- Email or Phone Field -->
           <div class="space-y-1">
-            <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Email or Telebirr Phone</label>
+            <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Demo username or email</label>
             <div class="relative">
-              <i class="fa-solid fa-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
-              <input type="text" id="auth-email" required placeholder="+251 91 234 5678" class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl pl-9 pr-3 py-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-purple">
+              <i class="fa-solid fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+              <input type="text" id="auth-email" required placeholder="demo-player" class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl pl-9 pr-3 py-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-purple">
             </div>
           </div>
-
-          <!-- Password Field -->
-          <div class="space-y-1">
-            <label class="text-xs font-semibold text-slate-300 light:text-slate-700">Password</label>
-            <div class="relative">
-              <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
-              <input type="password" id="auth-password" required placeholder="••••••••" class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl pl-9 pr-3 py-2.5 text-xs text-slate-100 light:text-slate-900 focus:outline-none focus:border-brand-purple">
-            </div>
-          </div>
-
-          <!-- Submit Button -->
+<!-- Submit Button -->
           <button type="submit" id="auth-submit-btn" class="w-full py-3 rounded-xl bg-brand-purple hover:bg-purple-700 text-white font-display font-black text-sm transition-all">
             LOGIN TO ኢ-SPORT ETHIOPIA
           </button>
@@ -1510,18 +1523,134 @@
 
         <div class="mt-6 text-center">
           <p class="text-xs text-slate-500">
-            ኢ-Sport Ethiopia • Instant Telebirr & CBE Payout Verification
+            ኢ-Sport Ethiopia • Demo account preview · No real authentication
           </p>
         </div>
       </div>
     </section>
 
-  </main>
+  
+    <!-- LIVE STREAM CENTER -->
+    <section id="view-streams" class="view-panel hidden space-y-7">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[.2em] text-red-300">
+            <span class="h-2 w-2 animate-pulse rounded-full bg-red-500"></span> ኢ-Sport Live
+          </div>
+          <h1 class="font-display text-2xl font-black tracking-tight text-white sm:text-4xl">LIVE STREAM <span class="text-brand-purple">ARENA</span></h1>
+          <p class="max-w-2xl text-sm text-slate-400">Watch community gameplay, discover streamers, and join live demo chats.</p>
+        </div>
+        <button onclick="openStreamCreator()" class="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-purple px-4 py-3 text-sm font-bold text-white shadow-lg transition hover:brightness-110">
+          <i class="fa-solid fa-tower-broadcast"></i> Start streaming
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1.65fr)_minmax(280px,.85fr)]">
+        <div class="space-y-4">
+          <div id="stream-featured" class="relative min-h-[220px] overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 sm:min-h-[300px]">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-900 to-slate-950"></div>
+            <div class="relative flex min-h-[220px] flex-col justify-end p-6 sm:min-h-[300px]">
+              <span class="mb-3 inline-flex w-fit items-center gap-2 rounded-full bg-red-600 px-3 py-1 text-[10px] font-black tracking-widest text-white"><span class="h-2 w-2 rounded-full bg-white"></span> FEATURED LIVE</span>
+              <h2 class="font-display text-2xl font-black text-white sm:text-3xl">Ethiopia Esports Community</h2>
+              <p class="mt-2 max-w-xl text-sm text-slate-300">Explore featured gameplay and community broadcasts. Demo streams are clearly labelled.</p>
+              <button onclick="openStream('stream-1')" class="mt-5 w-fit rounded-xl bg-white px-5 py-3 text-xs font-extrabold text-slate-950 transition hover:bg-slate-200">Explore featured stream <i class="fa-solid fa-arrow-right ml-2"></i></button>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 class="font-display text-lg font-bold text-white">Live now</h2>
+              <p class="text-xs text-slate-400">Community demo broadcasts</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <input id="stream-search" type="search" oninput="renderStreams()" placeholder="Search streams..." aria-label="Search streams" class="w-full rounded-xl border border-slate-700 bg-slate-900 px-3 py-2 text-xs text-white placeholder:text-slate-500 sm:w-48">
+              <select id="stream-game-filter" onchange="streamCategory='all';renderStreams()" aria-label="Filter streams by game" class="rounded-xl border border-slate-700 bg-slate-900 px-3 py-2 text-xs text-white">
+                <option value="all">All games</option><option>eFootball</option><option>EA FC</option><option>PUBG Mobile</option><option>Mobile Legends</option><option>Free Fire</option>
+              </select>
+            </div>
+          </div>
+          <div id="stream-grid" class="grid grid-cols-1 gap-4 sm:grid-cols-2 2xl:grid-cols-3"></div>
+        </div>
+
+        <aside class="space-y-4">
+          <div class="glass-card rounded-2xl border border-slate-800 p-4">
+            <div class="mb-4 flex items-center justify-between">
+              <h2 class="font-display text-sm font-bold text-white">Stream categories</h2>
+              <i class="fa-solid fa-gamepad text-brand-purple"></i>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="setStreamCategory('eFootball')" class="stream-category">eFootball</button>
+              <button onclick="setStreamCategory('EA FC')" class="stream-category">EA FC</button>
+              <button onclick="setStreamCategory('PUBG Mobile')" class="stream-category">PUBG Mobile</button>
+              <button onclick="setStreamCategory('Mobile Legends')" class="stream-category">Mobile Legends</button>
+              <button onclick="setStreamCategory('Free Fire')" class="stream-category">Free Fire</button>
+              <button onclick="setStreamCategory('all')" class="stream-category">All games</button>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl border border-slate-800 p-4">
+            <div class="mb-3 flex items-center justify-between">
+              <h2 class="font-display text-sm font-bold text-white">Popular streamers</h2>
+              <span class="text-[10px] text-slate-500">DEMO DATA</span>
+            </div>
+            <div id="streamer-list" class="space-y-3"></div>
+          </div>
+          <div class="rounded-2xl border border-brand-purple/30 bg-brand-purple/10 p-4">
+            <div class="flex items-center gap-2 text-brand-purple"><i class="fa-solid fa-circle-info"></i><span class="text-xs font-bold">Prototype notice</span></div>
+            <p class="mt-2 text-xs leading-relaxed text-slate-300">Streams, viewers, follows, and chat messages on this page are simulated locally. No real broadcast or public chat is transmitted.</p>
+          </div>
+        </aside>
+      </div>
+
+      <div id="stream-watch-panel" class="hidden space-y-4 rounded-2xl border border-slate-700 bg-slate-900/70 p-3 sm:p-5">
+        <div class="flex items-center justify-between gap-3">
+          <div><p class="text-[10px] font-bold uppercase tracking-widest text-brand-purple">Now viewing</p><h2 id="watch-title" class="mt-1 font-display text-lg font-bold text-white">Stream title</h2></div>
+          <div class="flex gap-2"><button onclick="endDemoStream()" class="rounded-lg border border-red-500/40 px-3 py-2 text-xs text-red-300 hover:bg-red-500/10">End my stream</button><button onclick="closeStreamWatch()" class="rounded-lg border border-slate-700 px-3 py-2 text-xs text-slate-300 hover:bg-slate-800"><i class="fa-solid fa-xmark mr-1"></i> Close</button></div>
+        </div>
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1.6fr)_minmax(260px,.7fr)]">
+          <div>
+            <div class="relative flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-slate-700 bg-gradient-to-br from-indigo-950 via-slate-950 to-black">
+              <div class="px-6 text-center">
+                <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-2xl text-brand-purple"><i class="fa-solid fa-play"></i></div>
+                <p class="font-display text-sm font-bold text-white">Demo stream player</p>
+                <p class="mt-2 text-xs text-slate-400">No live video source is connected. This preview represents the stream viewing experience.</p>
+              </div>
+              <span id="watch-status" class="absolute left-3 top-3 rounded-md bg-red-600 px-2 py-1 text-[9px] font-black tracking-widest text-white">LIVE · DEMO</span>
+            </div>
+            <div class="mt-3 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-3"><img id="watch-avatar" src="" alt="" class="h-10 w-10 rounded-full object-cover"><div><p id="watch-streamer" class="text-sm font-bold text-white"></p><p id="watch-game" class="text-[11px] text-slate-400"></p></div></div>
+              <span id="watch-viewers" class="text-xs text-slate-300"><i class="fa-solid fa-eye mr-1"></i> 0 viewers</span>
+            </div>
+            <p id="watch-description" class="mt-3 text-sm leading-relaxed text-slate-400"></p>
+          </div>
+          <div class="flex min-h-[330px] flex-col overflow-hidden rounded-xl border border-slate-700 bg-slate-950">
+            <div class="border-b border-slate-800 px-4 py-3"><h3 class="text-sm font-bold text-white">Stream chat <span class="ml-1 text-[10px] font-normal text-slate-500">DEMO</span></h3></div>
+            <div id="stream-chat-messages" class="flex-1 space-y-3 overflow-y-auto p-3" aria-live="polite"></div>
+            <form onsubmit="sendStreamMessage(event)" class="flex gap-2 border-t border-slate-800 p-3">
+              <input id="stream-chat-input" maxlength="240" required placeholder="Say something..." class="min-w-0 flex-1 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-xs text-white">
+              <button class="rounded-lg bg-brand-purple px-3 py-2 text-xs font-bold text-white" aria-label="Send stream chat message"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div class="glass-card rounded-2xl border border-slate-800 p-4">
+          <h2 class="font-display text-sm font-bold text-white">Upcoming streams</h2>
+          <div class="mt-3 space-y-3 text-xs text-slate-400"><p><i class="fa-regular fa-calendar mr-2 text-brand-purple"></i> Community eFootball Night · Friday, 7:00 PM EAT</p><p><i class="fa-regular fa-calendar mr-2 text-brand-purple"></i> PUBG Squad Practice · Saturday, 6:30 PM EAT</p></div>
+        </div>
+        <div class="glass-card rounded-2xl border border-slate-800 p-4">
+          <h2 class="font-display text-sm font-bold text-white">Recently streamed</h2>
+          <div class="mt-3 space-y-3 text-xs text-slate-400"><p><i class="fa-solid fa-circle-play mr-2 text-brand-purple"></i> Weekend Ranked Matches · Replay placeholder</p><p><i class="fa-solid fa-circle-play mr-2 text-brand-purple"></i> Mobile Legends Team Scrim · Replay placeholder</p></div>
+        </div>
+      </div>
+    </section>
+
+</main>
 
 
   <!-- ================= FLOATING BOTTOM NAVIGATION BAR ================= -->
   <nav class="fixed bottom-2 sm:bottom-3 left-0 right-0 z-50 px-1 sm:px-4 pointer-events-none">
-    <div class="max-w-lg mx-auto pointer-events-auto rounded-2xl sm:rounded-3xl glass-card border border-slate-800/80 light:border-slate-300 shadow-2xl py-1 sm:py-2 px-1 sm:px-3 backdrop-blur-md">
+    <div class="max-w-2xl mx-auto pointer-events-auto rounded-2xl sm:rounded-3xl glass-card border border-slate-800/80 light:border-slate-300 shadow-2xl py-1 sm:py-2 px-1 sm:px-3 backdrop-blur-md">
       <div class="flex items-center justify-around gap-0.5 sm:gap-1">
 
         <button onclick="navigateTo('home')" class="nav-tab-btn active flex flex-col items-center gap-0.5 text-brand-purple dark:text-purple-400 light:text-purple-700 transition-colors py-0.5 px-1 sm:px-3 rounded-xl min-w-0" data-target="home">
@@ -1539,9 +1668,14 @@
           <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-semibold tracking-wide truncate max-w-full">Tourneys</span>
         </button>
 
+        <button onclick="navigateTo('streams')" class="nav-tab-btn flex flex-col items-center gap-0.5 text-slate-400 transition-colors py-0.5 px-1 sm:px-3 rounded-xl min-w-0" data-target="streams">
+          <i class="fa-solid fa-tower-broadcast text-sm sm:text-lg shrink-0"></i>
+          <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-semibold tracking-wide truncate max-w-full">Live</span>
+        </button>
+
         <button onclick="navigateTo('cashout')" class="nav-tab-btn flex flex-col items-center gap-0.5 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-slate-200 light:hover:text-slate-900 transition-colors py-0.5 px-1 sm:px-3 rounded-xl min-w-0" data-target="cashout">
           <i class="fa-solid fa-wallet text-sm sm:text-lg shrink-0"></i>
-          <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-semibold tracking-wide truncate max-w-full">Cash Out</span>
+          <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-semibold tracking-wide truncate max-w-full">Wallet</span>
         </button>
 
         <button onclick="navigateTo('search')" class="nav-tab-btn flex flex-col items-center gap-0.5 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-slate-200 light:hover:text-slate-900 transition-colors py-0.5 px-1 sm:px-3 rounded-xl min-w-0" data-target="search">
@@ -1563,6 +1697,26 @@
     </div>
   </nav>
 
+
+
+  <!-- Live Stream Creator Modal (demo only) -->
+  <div id="stream-create-modal" class="fixed inset-0 z-[70] hidden items-center justify-center overflow-y-auto bg-slate-950/85 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="stream-create-title">
+    <form onsubmit="startDemoStream(event)" class="my-auto w-full max-w-lg space-y-4 rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow-2xl sm:p-6">
+      <div class="flex items-start justify-between gap-3">
+        <div><p class="text-[10px] font-bold uppercase tracking-widest text-brand-purple">Creator studio · Demo</p><h2 id="stream-create-title" class="mt-1 font-display text-xl font-black text-white">Set up your stream</h2></div>
+        <button type="button" onclick="closeStreamCreator()" aria-label="Close stream creator" class="rounded-lg border border-slate-700 px-3 py-2 text-slate-300 hover:bg-slate-800"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="space-y-1"><label for="demo-stream-title" class="text-xs font-semibold text-slate-300">Stream title</label><input id="demo-stream-title" maxlength="90" required placeholder="e.g. Ranked eFootball session" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-3 text-sm text-white placeholder:text-slate-500"></div>
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div class="space-y-1"><label for="demo-stream-game" class="text-xs font-semibold text-slate-300">Game</label><select id="demo-stream-game" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-3 text-sm text-white"><option>eFootball</option><option>EA FC</option><option>PUBG Mobile</option><option>Mobile Legends</option><option>Free Fire</option></select></div>
+        <div class="space-y-1"><label for="demo-stream-theme" class="text-xs font-semibold text-slate-300">Thumbnail style</label><select id="demo-stream-theme" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-3 text-sm text-white"><option value="from-indigo-950 via-slate-900 to-cyan-950">Neon blue</option><option value="from-violet-950 via-slate-900 to-fuchsia-950">Violet arena</option><option value="from-amber-950 via-slate-900 to-red-950">Red combat</option><option value="from-emerald-950 via-slate-900 to-teal-950">Emerald field</option></select></div>
+      </div>
+      <div class="space-y-1"><label for="demo-stream-description" class="text-xs font-semibold text-slate-300">Description</label><textarea id="demo-stream-description" maxlength="300" rows="3" placeholder="Tell viewers what this demo stream is about..." class="w-full resize-y rounded-xl border border-slate-700 bg-slate-950 px-3 py-3 text-sm text-white placeholder:text-slate-500"></textarea></div>
+      <div id="demo-stream-preview" class="flex aspect-video items-center justify-center rounded-xl border border-slate-700 bg-gradient-to-br from-indigo-950 via-slate-900 to-cyan-950"><span class="text-xs font-bold text-white/80"><i class="fa-solid fa-play mr-2"></i> Stream thumbnail preview</span></div>
+      <p class="text-[11px] leading-relaxed text-slate-400"><i class="fa-solid fa-circle-info mr-1 text-brand-purple"></i>This creates a local demo listing only. It does not capture your camera, microphone, screen, or broadcast video.</p>
+      <div class="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end"><button type="button" onclick="closeStreamCreator()" class="rounded-xl border border-slate-700 px-4 py-3 text-xs font-bold text-slate-300 hover:bg-slate-800">Cancel</button><button type="submit" class="rounded-xl bg-brand-purple px-5 py-3 text-xs font-black text-white hover:brightness-110"><i class="fa-solid fa-tower-broadcast mr-2"></i>Create demo stream</button></div>
+    </form>
+  </div>
 
   <!-- ================= MODALS ================= -->
 
@@ -1590,11 +1744,11 @@
   <!-- Edit Handles Modal -->
   <div id="edit-handles-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="glass-card w-full max-w-sm rounded-2xl p-6 border border-slate-800 space-y-4">
-      <h3 class="font-display font-bold text-lg text-slate-100 dark:text-white light:text-slate-900">Edit Game IDs & Telebirr</h3>
+      <h3 class="font-display font-bold text-lg text-slate-100 dark:text-white light:text-slate-900">Edit Game IDs & Demo Labels</h3>
       <div class="space-y-3">
         <div>
-          <label class="text-xs text-slate-400">Telebirr Account Phone</label>
-          <input type="text" id="handle-telebirr" class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl p-2 text-xs text-slate-100 light:text-slate-900">
+          <label class="text-xs text-slate-400">Fictional demo payment label</label>
+          <input type="text" id="handle-telebirr" placeholder="DEMO-TELEBIRR" class="w-full bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-xl p-2 text-xs text-slate-100 light:text-slate-900">
         </div>
         <div>
           <label class="text-xs text-slate-400">EA Sports / FIFA ID</label>
@@ -1629,10 +1783,10 @@
         rank: 7,
         bio: "Ethiopian competitive gamer from Addis Ababa. EA FC 24 and PUBG Mobile specialist targeting the Top 3 ETB prize spot!",
         handles: {
-          telebirr: "+251 91 198 7654",
-          cbe: "100029384810",
-          dashen: "+251 91 198 7654",
-          awash: "+251 91 198 7654",
+          telebirr: "DEMO-TELEBIRR-001",
+          cbe: "DEMO-CBE-001",
+          dashen: "DEMO-DASHEN-001",
+          awash: "DEMO-AWASH-001",
           ea: "Fita_ETH_99",
           pubg: "5182930419"
         },
@@ -1721,10 +1875,10 @@
         rank: player.rank || 1,
         bio: `${player.gamertag} is a competitive Ethiopian gamer focused on high-pressure matches and regional tournament battles.`,
         handles: {
-          telebirr: "+251 9" + Math.floor(10000000 + Math.random() * 90000000).toString().slice(0, 8),
-          cbe: String(Math.floor(1000000000 + Math.random() * 9000000000)),
+          telebirr: "DEMO-TELEBIRR",
+          cbe: "DEMO-CBE",
           ea: `${player.gamertag}_ID`,
-          pubg: String(Math.floor(100000000 + Math.random() * 900000000))
+          pubg: "DEMO-PUBG-ID"
         },
         playingGames: normalized.map((name, index) => ({
           name,
@@ -1737,19 +1891,44 @@
       };
     }
 
-    function openPlayerProfile(player) {
+    function profileSlug(value) {
+      return String(value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
+    function openPlayerProfile(player, options = {}) {
       if (!player) return;
 
       // Keep the signed-in user's private account page separate.
-      if (player.gamertag === appState.currentUser.gamertag) {
+      if (String(player.gamertag || '').toLowerCase() === String(appState.currentUser.gamertag || '').toLowerCase()) {
         appState.profileUser = null;
+        const url = new URL(window.location.href);
+        url.searchParams.delete('profile');
+        if (!options.fromUrl) history.pushState({}, '', url);
         navigateTo('profile');
         return;
       }
 
       appState.publicPlayer = player;
       renderPublicPlayerProfile(player);
+      if (!options.fromUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('profile', profileSlug(player.gamertag));
+        history.pushState({ profile: profileSlug(player.gamertag) }, '', url);
+      }
       navigateTo('player-profile');
+    }
+
+    function loadProfileFromUrl() {
+      const requested = new URLSearchParams(window.location.search).get('profile');
+      if (!requested) return false;
+      const target = profileSlug(requested);
+      const player = leaderboardData.find(item => profileSlug(item.gamertag) === target);
+      if (!player) {
+        showToast('That player profile could not be found.');
+        return false;
+      }
+      openPlayerProfile(player, { fromUrl: true });
+      return true;
     }
 
     function renderPublicPlayerProfile(player) {
@@ -1883,10 +2062,10 @@
     };
 
     const tournamentsData = [
-      { title: "Addis EA FC 24 Championship", game: "EA FC 24", genre: "Sports", entry: "Free / Telebirr Verified", prizePool: "50,000 ETB", pointsReward: "+500 PTS", status: "Registration Open", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&auto=format&fit=crop&q=80" },
-      { title: "Ethiopian PUBG Mobile Showdown", game: "PUBG Mobile", genre: "Battle Royale", entry: "100 ETB / Telebirr", prizePool: "60,000 ETB", pointsReward: "+750 PTS", status: "Live Now", image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=80" },
+      { title: "Addis EA FC 24 Championship", game: "EA FC 24", genre: "Sports", entry: "Free demo entry", prizePool: "50,000 ETB", pointsReward: "+500 PTS", status: "Registration Open", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&auto=format&fit=crop&q=80" },
+      { title: "Ethiopian PUBG Mobile Showdown", game: "PUBG Mobile", genre: "Battle Royale", entry: "Demo entry", prizePool: "60,000 ETB", pointsReward: "+750 PTS", status: "Live Now", image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=80" },
       { title: "Hawassa COD Mobile Battle", game: "COD Mobile", genre: "FPS", entry: "Free", prizePool: "25,000 ETB", pointsReward: "+350 PTS", status: "Starts Tomorrow", image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=500&auto=format&fit=crop&q=80" },
-      { title: "eFootball Mobile Regional Cup", game: "eFootball 2024", genre: "Sports", entry: "50 ETB / CBE Birr", prizePool: "15,000 ETB", pointsReward: "+300 PTS", status: "Registration Open", image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&auto=format&fit=crop&q=80" }
+      { title: "eFootball Mobile Regional Cup", game: "eFootball 2024", genre: "Sports", entry: "Demo entry", prizePool: "15,000 ETB", pointsReward: "+300 PTS", status: "Registration Open", image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&auto=format&fit=crop&q=80" }
     ];
 
     const competitorsData = [
@@ -1996,6 +2175,12 @@
     // --- Core Navigation Handler ---
     function navigateTo(tabName) {
       appState.currentTab = tabName;
+      if (!['player-profile'].includes(tabName) && new URLSearchParams(window.location.search).has('profile')) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('profile');
+        history.replaceState({}, '', url);
+      }
+      if (tabName === 'streams') renderStreams();
 
       document.querySelectorAll('.view-panel').forEach(panel => {
         panel.classList.add('hidden');
@@ -2185,7 +2370,7 @@
           </div>
           <div class="pt-2 border-t border-slate-800 light:border-slate-300">
             <span class="inline-block px-3 py-1 rounded-lg bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-900 text-xs font-bold">
-              PRIZE: ${top2.prize}
+              DEMO PRIZE: ${top2.prize}
             </span>
           </div>
         </div>
@@ -2205,7 +2390,7 @@
           </div>
           <div class="pt-2 border-t border-slate-800 light:border-slate-300">
             <span class="inline-block px-4 py-1.5 rounded-xl bg-brand-gold/20 light:bg-amber-100 text-brand-gold dark:text-amber-300 light:text-amber-900 text-xs font-black border border-brand-gold/40">
-              PRIZE: ${top1.prize}
+              DEMO PRIZE: ${top1.prize}
             </span>
           </div>
         </div>
@@ -2222,7 +2407,7 @@
           </div>
           <div class="pt-2 border-t border-slate-800 light:border-slate-300">
             <span class="inline-block px-3 py-1 rounded-lg bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-900 text-xs font-bold">
-              PRIZE: ${top3.prize}
+              DEMO PRIZE: ${top3.prize}
             </span>
           </div>
         </div>
@@ -2301,7 +2486,7 @@
       if (document.getElementById('profile-email')) document.getElementById('profile-email').innerText = profileUser.email;
       if (document.getElementById('header-points')) document.getElementById('header-points').innerText = profileUser.points.toLocaleString();
       if (document.getElementById('profile-balance')) document.getElementById('profile-balance').innerText = profileUser.balance.toLocaleString();
-      if (document.getElementById('header-balance')) document.getElementById('header-balance').innerText = `${profileUser.balance.toLocaleString()} ETB`;
+      if (document.getElementById('header-balance')) document.getElementById('header-balance').innerText = `DEMO · ${profileUser.balance.toLocaleString()} ETB`;
       if (document.getElementById('profile-rank')) document.getElementById('profile-rank').innerText = profileUser.rank;
       if (document.getElementById('bio-text')) document.getElementById('bio-text').innerText = `"${profileUser.bio}"`;
 
@@ -2402,34 +2587,34 @@
 
     function handleCashoutSubmit(event) {
       event.preventDefault();
-      const amt = parseInt(document.getElementById('cashout-amount').value);
-      const gateway = appState.selectedGateway;
-      const account = document.getElementById('cashout-account').value;
+      const amountInput = document.getElementById('cashout-amount');
+      const amt = Number(amountInput?.value);
+      const gateway = appState.selectedGateway || 'Demo method';
 
-      if (!amt || amt < 100) {
-        showToast("Minimum withdrawal amount is 100 ETB.");
+      if (!Number.isFinite(amt) || amt < 100) {
+        showToast("Enter a demo amount of at least 100 ETB.");
         return;
       }
-
       if (amt > appState.currentUser.balance) {
-        showToast("Insufficient balance for this withdrawal.");
+        showToast("The demo balance is not sufficient for this simulated request.");
         return;
       }
 
+      // Local prototype bookkeeping only. No payment provider is contacted.
       appState.currentUser.balance -= amt;
       appState.currentUser.pendingBalance += amt;
-
       appState.currentUser.transactions.unshift({
-        txId: `TX-${Math.floor(10000 + Math.random() * 90000)}`,
-        gateway: gateway,
+        txId: `DEMO-${Math.floor(10000 + Math.random() * 90000)}`,
+        gateway: `DEMO · ${gateway}`,
         amount: `${amt.toLocaleString()} ETB`,
         date: "Just Now",
-        status: "Pending"
+        status: "Simulated"
       });
 
       renderCashout();
       renderProfile();
-      showToast(`Withdrawal request for ${amt.toLocaleString()} ETB via ${gateway} submitted!`);
+      document.getElementById('cashout-form')?.reset();
+      showToast(`Demo request for ${amt.toLocaleString()} ETB created locally. No money was transferred.`);
     }
 
     // --- Render Tournaments Grid ---
@@ -2451,7 +2636,7 @@
                 ${t.status}
               </span>
               <span class="absolute bottom-2 right-3 font-display font-black text-base text-brand-gold bg-slate-950/80 px-2 py-0.5 rounded-lg">
-                ${t.prizePool}
+                DEMO · ${t.prizePool}
               </span>
             </div>
 
@@ -2468,14 +2653,18 @@
             </div>
           </div>
 
-          <div class="p-4 pt-0">
-            <button onclick="joinTournament('${t.title}')" class="w-full py-2.5 rounded-xl bg-brand-purple hover:bg-purple-700 text-white font-display font-black text-xs transition-colors">
-              JOIN TOURNAMENT
-            </button>
+          <div class="p-4 pt-0 space-y-2">
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="watchTournamentBroadcast('${safeText(t.title)}')" class="rounded-xl border border-red-500/40 bg-red-500/10 px-2 py-2.5 text-[10px] font-black text-red-300 hover:bg-red-500/20"><i class="fa-solid fa-circle-play mr-1"></i> WATCH STREAM</button>
+              <button onclick="hostTournamentBroadcast('${safeText(t.title)}','${safeText(t.game)}')" class="rounded-xl border border-slate-700 px-2 py-2.5 text-[10px] font-black text-slate-200 hover:border-brand-purple hover:text-white"><i class="fa-solid fa-tower-broadcast mr-1"></i> HOST STREAM</button>
+            </div>
+            <button onclick="joinTournament('${safeText(t.title)}')" class="w-full py-2.5 rounded-xl bg-brand-purple hover:bg-purple-700 text-white font-display font-black text-xs transition-colors">JOIN TOURNAMENT</button>
           </div>
         `;
         grid.appendChild(card);
       });
+
+      renderTournamentBroadcasts();
 
       if (homeFeatured && homeFeatured.children.length === 0) {
         tournamentsData.slice(0, 3).forEach(t => {
@@ -2486,7 +2675,7 @@
               <img src="${t.image}" class="w-12 h-12 rounded-lg object-cover border border-slate-700">
               <div>
                 <h4 class="font-bold text-sm text-slate-100 dark:text-white light:text-slate-900">${t.title}</h4>
-                <div class="text-xs text-slate-400 light:text-slate-600">${t.game} • <span class="text-brand-gold font-bold">${t.prizePool}</span></div>
+                <div class="text-xs text-slate-400 light:text-slate-600">${t.game} • <span class="text-brand-gold font-bold">DEMO · ${t.prizePool}</span></div>
               </div>
             </div>
             <button onclick="navigateTo('tournaments')" class="px-3 py-1.5 rounded-lg bg-brand-purple text-white font-bold text-xs">
@@ -2554,6 +2743,53 @@
       });
     }
 
+    function renderTournamentBroadcasts() {
+      const host = document.getElementById('tournament-broadcast-list');
+      if (!host) return;
+      const linked = demoStreams.filter(stream => stream.tournamentTitle && stream.status === 'live');
+      host.replaceChildren();
+      if (!linked.length) {
+        const empty = document.createElement('p');
+        empty.className = 'col-span-full rounded-xl border border-dashed border-slate-700 p-5 text-center text-xs text-slate-400';
+        empty.textContent = 'No tournament broadcasts are live right now. You can host a demo stream from any tournament card.';
+        host.appendChild(empty);
+        return;
+      }
+      linked.forEach(stream => {
+        const item = document.createElement('article');
+        item.className = 'flex min-w-0 items-center gap-3 rounded-xl border border-slate-700/80 bg-slate-950/50 p-3';
+        item.innerHTML = `<div class="flex h-12 w-16 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${safeText(stream.theme)}"><i class="fa-solid fa-tower-broadcast text-xl text-white"></i></div><div class="min-w-0 flex-1"><p class="truncate text-xs font-bold text-white">${safeText(stream.tournamentTitle)}</p><p class="truncate text-[10px] text-slate-400">${safeText(stream.title)} · ${safeText(stream.streamer)}</p><span class="mt-1 inline-flex items-center gap-1 text-[9px] font-black text-red-400"><span class="h-1.5 w-1.5 rounded-full bg-red-500"></span> LIVE · DEMO</span></div><button onclick="navigateTo('streams');openStream('${safeText(stream.id)}')" class="shrink-0 rounded-lg bg-red-600 px-3 py-2 text-[10px] font-black text-white hover:bg-red-500">WATCH</button>`;
+        host.appendChild(item);
+      });
+    }
+
+    function watchTournamentBroadcast(title) {
+      const matches = demoStreams.filter(stream => stream.tournamentTitle === title && stream.status === 'live');
+      if (!matches.length) {
+        showToast('No live demo broadcast for this tournament yet. Use HOST STREAM to create one.');
+        return;
+      }
+      navigateTo('streams');
+      openStream(matches[0].id);
+    }
+
+    function hostTournamentBroadcast(title, game) {
+      const gameMap = {'EA FC 24':'EA FC','eFootball 2024':'eFootball','COD Mobile':'Free Fire','PUBG Mobile':'PUBG Mobile'};
+      const stream = {
+        id:`tournament-stream-${Date.now()}`, title:`${title} · Live Match Coverage`,
+        streamer:appState.currentUser.gamertag || 'Demo Host', game:gameMap[game] || game,
+        viewers:0, avatar:appState.currentUser.avatar,
+        description:`A tournament-linked demo broadcast for ${title}. Follow the match, view the simulated chat, and enjoy the community coverage.`,
+        theme:'from-red-950 via-slate-900 to-indigo-950', status:'live', own:true, tournamentTitle:title
+      };
+      demoStreams.unshift(stream);
+      renderStreams();
+      renderTournamentBroadcasts();
+      navigateTo('streams');
+      openStream(stream.id);
+      showToast('Tournament demo broadcast created. No live video is being transmitted.');
+    }
+
     function filterTournaments(category) {
       document.querySelectorAll('.tourn-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-filter') === category) {
@@ -2583,14 +2819,14 @@
         loginTab.className = "flex-1 py-2 rounded-lg text-xs sm:text-sm font-display font-bold text-slate-400 light:text-slate-600 hover:text-slate-200 transition-all";
         gamertagField.classList.remove('hidden');
         title.innerText = "CREATE ETHIOPIA ACCOUNT";
-        subtitle.innerText = "Register your gaming ID to start collecting ETB prize money.";
+        subtitle.innerText = "Create a fictional demo profile. No real account or payment details are needed.";
         submitBtn.innerText = "SIGN UP & START PLAYING";
       } else {
         loginTab.className = "flex-1 py-2 rounded-lg text-xs sm:text-sm font-display font-bold transition-all bg-brand-purple text-white";
         signupTab.className = "flex-1 py-2 rounded-lg text-xs sm:text-sm font-display font-bold text-slate-400 light:text-slate-600 hover:text-slate-200 transition-all";
         gamertagField.classList.add('hidden');
         title.innerText = "WELCOME BACK, GAMER";
-        subtitle.innerText = "Enter your credentials or Telebirr registered phone to continue.";
+        subtitle.innerText = "Choose a demo username or email to preview the account experience.";
         submitBtn.innerText = "LOGIN TO NEXUS";
       }
     }
@@ -2705,20 +2941,205 @@
     }
 
     function joinTournament(title) {
-      showToast(`Registered for ${title}! Telebirr room confirmation sent.`);
+      showToast(`Demo registration confirmed for ${title}. No real entry or payment was made.`);
     }
 
     function showToast(message) {
       const container = document.getElementById('toast-container');
       const toast = document.createElement('div');
       toast.className = "glass-card border border-brand-purple text-slate-100 dark:text-white light:text-slate-900 text-xs font-semibold px-4 py-3 rounded-xl flex items-center gap-2 pointer-events-auto transition-all";
-      toast.innerHTML = `<i class="fa-solid fa-circle-check text-brand-emerald text-sm"></i> <span>${message}</span>`;
+      const icon = document.createElement('i');
+      icon.className = 'fa-solid fa-circle-check text-brand-emerald text-sm';
+      const label = document.createElement('span');
+      label.textContent = String(message ?? '');
+      toast.append(icon, label);
       container.appendChild(toast);
 
       setTimeout(() => {
         toast.remove();
       }, 3000);
     }
+
+
+    // =========================================================
+    // LIVE STREAM CENTER — local demonstration implementation
+    // =========================================================
+    const demoStreams = [
+      { id:'stream-1', title:'Ranked eFootball Road to Division One', streamer:'Abebe_Pro', game:'eFootball', viewers:248, avatar:'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80', description:'A community demonstration stream featuring competitive eFootball matches and tactical discussions.', theme:'from-blue-950 via-slate-900 to-indigo-950', status:'live', tournamentTitle:'Addis EA FC 24 Championship' },
+      { id:'stream-2', title:'PUBG Mobile Squad Scrims', streamer:'Selam_Sniper', game:'PUBG Mobile', viewers:186, avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80', description:'A simulated squad scrim session with map strategy and team coordination.', theme:'from-amber-950 via-slate-900 to-red-950', status:'live', tournamentTitle:'Ethiopian PUBG Mobile Showdown' },
+      { id:'stream-3', title:'EA FC Weekend Challenge', streamer:'Tariku_FC', game:'EA FC', viewers:104, avatar:'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=120&auto=format&fit=crop&q=80', description:'Friendly EA FC challenge matches from the Ethiopian gaming community.', theme:'from-emerald-950 via-slate-900 to-teal-950', status:'live', tournamentTitle:'Addis EA FC 24 Championship' },
+      { id:'stream-4', title:'Mobile Legends Ranked Sessions', streamer:'Helen_MLBB', game:'Mobile Legends', viewers:92, avatar:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&auto=format&fit=crop&q=80', description:'A local demo stream profile for Mobile Legends gameplay.', theme:'from-violet-950 via-slate-900 to-fuchsia-950', status:'live' },
+      { id:'stream-5', title:'Free Fire Training Room', streamer:'Yared_PUBG', game:'Free Fire', viewers:67, avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80', description:'Practice drills and community gameplay in a simulated broadcast.', theme:'from-orange-950 via-slate-900 to-rose-950', status:'live' }
+    ];
+    let activeStreamId = null;
+    let streamChat = [];
+    let streamCategory = 'all';
+    let followedStreamers = new Set();
+
+    function safeText(value) { return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])); }
+
+    function renderStreams() {
+      const grid = document.getElementById('stream-grid');
+      if (!grid) return;
+      const search = (document.getElementById('stream-search')?.value || '').trim().toLowerCase();
+      const filter = document.getElementById('stream-game-filter');
+      const game = streamCategory !== 'all' ? streamCategory : (filter?.value || 'all');
+      const filtered = demoStreams.filter(stream => stream.status === 'live').filter(stream => {
+        const matchesSearch = `${stream.title} ${stream.streamer} ${stream.game}`.toLowerCase().includes(search);
+        const matchesGame = game === 'all' || stream.game.toLowerCase() === game.toLowerCase();
+        return matchesSearch && matchesGame;
+      });
+      grid.replaceChildren();
+      if (!filtered.length) {
+        const empty = document.createElement('div');
+        empty.className = 'col-span-full rounded-xl border border-dashed border-slate-700 p-8 text-center text-sm text-slate-400';
+        empty.textContent = 'No streams match your search. Try another game or keyword.';
+        grid.appendChild(empty);
+      }
+      filtered.forEach(stream => {
+        const card = document.createElement('article');
+        card.className = 'stream-card';
+        card.innerHTML = `<button type="button" class="block w-full text-left" aria-label="Watch ${safeText(stream.title)}" onclick="openStream('${stream.id}')">
+          <div class="stream-thumb bg-gradient-to-br ${stream.theme}"><span class="stream-live-pill">● LIVE</span><span class="stream-demo-pill">DEMO</span><i class="fa-solid fa-gamepad text-5xl text-white/20"></i><span class="absolute bottom-3 left-3 z-10 text-xs font-bold text-white">${safeText(stream.game)}</span><span class="absolute bottom-3 right-3 z-10 rounded bg-black/70 px-2 py-1 text-[10px] text-white"><i class="fa-solid fa-eye mr-1"></i>${stream.viewers}</span></div>
+          <div class="flex items-start gap-3 p-3"><img src="${safeText(stream.avatar)}" alt="" class="h-10 w-10 rounded-full object-cover"><div class="min-w-0 flex-1"><h3 class="line-clamp-2 text-xs font-bold leading-relaxed text-white">${safeText(stream.title)}</h3><p class="mt-1 text-[11px] text-slate-400">${safeText(stream.streamer)} · ${safeText(stream.game)}</p></div><i class="fa-solid fa-ellipsis-vertical text-slate-500"></i></div>
+        </button>`;
+        grid.appendChild(card);
+      });
+      renderStreamerList();
+    }
+
+    function setStreamCategory(game) {
+      streamCategory = game;
+      const select = document.getElementById('stream-game-filter');
+      if (select) select.value = game;
+      renderStreams();
+    }
+
+    function renderStreamerList() {
+      const list = document.getElementById('streamer-list');
+      if (!list) return;
+      const unique = [...new Map(demoStreams.map(s => [s.streamer, s])).values()].slice(0,4);
+      list.replaceChildren();
+      unique.forEach(stream => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center gap-3';
+        row.innerHTML = `<img src="${safeText(stream.avatar)}" alt="" class="h-9 w-9 rounded-full object-cover"><div class="min-w-0 flex-1"><p class="truncate text-xs font-bold text-white">${safeText(stream.streamer)}</p><p class="text-[10px] text-slate-500">${safeText(stream.game)}</p></div><button onclick="toggleFollowStreamer('${safeText(stream.streamer)}')" class="rounded-lg border border-slate-700 px-2 py-1 text-[10px] font-bold text-slate-300 hover:border-brand-purple">${followedStreamers.has(stream.streamer) ? 'Following' : 'Follow'}</button>`;
+        list.appendChild(row);
+      });
+    }
+
+    function toggleFollowStreamer(name) {
+      if (followedStreamers.has(name)) followedStreamers.delete(name); else followedStreamers.add(name);
+      renderStreamerList();
+      showToast(followedStreamers.has(name) ? `Following ${name} in this demo.` : `Unfollowed ${name}.`);
+    }
+
+    function openStream(id) {
+      const stream = demoStreams.find(item => item.id === id);
+      if (!stream) return;
+      activeStreamId = id;
+      const panel = document.getElementById('stream-watch-panel');
+      panel?.classList.remove('hidden');
+      document.getElementById('watch-title').textContent = stream.title;
+      document.getElementById('watch-avatar').src = stream.avatar;
+      document.getElementById('watch-avatar').alt = `${stream.streamer} avatar`;
+      document.getElementById('watch-streamer').textContent = stream.streamer;
+      document.getElementById('watch-game').textContent = `${stream.game} · Demo broadcast${stream.tournamentTitle ? ' · ' + stream.tournamentTitle : ''}`;
+      document.getElementById('watch-viewers').innerHTML = `<i class="fa-solid fa-eye mr-1"></i> ${stream.viewers} demo viewers`;
+      document.getElementById('watch-description').textContent = stream.description;
+      document.getElementById('watch-status').textContent = stream.status === 'live' ? 'LIVE · DEMO' : 'ENDED · DEMO';
+      streamChat = [
+        {name:'System', text:'Welcome to the demo stream chat.'},
+        {name:'Abebe_Pro', text:'Good luck everyone!'},
+        {name:'Selam_Sniper', text:'Let us enjoy the matches.'}
+      ];
+      renderStreamChat();
+      panel?.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    function closeStreamWatch() {
+      document.getElementById('stream-watch-panel')?.classList.add('hidden');
+      activeStreamId = null;
+    }
+
+    function renderStreamChat() {
+      const box = document.getElementById('stream-chat-messages');
+      if (!box) return;
+      box.replaceChildren();
+      streamChat.forEach(message => {
+        const item = document.createElement('p');
+        item.className = 'break-words text-xs leading-relaxed text-slate-300';
+        const name = document.createElement('strong');
+        name.className = 'mr-2 text-brand-purple';
+        name.textContent = message.name;
+        const body = document.createElement('span');
+        body.textContent = message.text;
+        item.append(name, body);
+        box.appendChild(item);
+      });
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function sendStreamMessage(event) {
+      event.preventDefault();
+      const input = document.getElementById('stream-chat-input');
+      const text = input?.value.trim();
+      if (!text || !activeStreamId) return;
+      streamChat.push({name: appState.currentUser.gamertag || 'Player', text: text.slice(0,240)});
+      input.value = '';
+      renderStreamChat();
+    }
+
+    function openStreamCreator() {
+      const modal = document.getElementById('stream-create-modal');
+      modal?.classList.remove('hidden');
+      modal?.classList.add('flex');
+      document.getElementById('demo-stream-title')?.focus();
+    }
+
+    function closeStreamCreator() {
+      const modal = document.getElementById('stream-create-modal');
+      modal?.classList.add('hidden');
+      modal?.classList.remove('flex');
+    }
+
+    function startDemoStream(event) {
+      event.preventDefault();
+      const title = document.getElementById('demo-stream-title')?.value.trim().slice(0,90);
+      const game = document.getElementById('demo-stream-game')?.value || 'eFootball';
+      const description = document.getElementById('demo-stream-description')?.value.trim().slice(0,300);
+      const theme = document.getElementById('demo-stream-theme')?.value || 'from-indigo-950 via-slate-900 to-cyan-950';
+      if (!title) { showToast('Add a stream title first.'); return; }
+      const stream = {
+        id:`stream-${Date.now()}`, title, streamer:appState.currentUser.gamertag || 'Demo Player',
+        game, viewers:0, avatar:appState.currentUser.avatar,
+        description:description || 'A locally simulated community stream created for the website demonstration.',
+        theme, status:'live', own:true
+      };
+      demoStreams.unshift(stream);
+      document.getElementById('stream-create-modal')?.querySelector('form')?.reset();
+      closeStreamCreator();
+      renderStreams();
+      renderTournamentBroadcasts();
+      openStream(stream.id);
+      showToast('Demo stream created. No video is being broadcast.');
+    }
+
+    function endDemoStream() {
+      if (!activeStreamId) return;
+      const stream = demoStreams.find(item => item.id === activeStreamId);
+      if (!stream || !stream.own) { showToast('Only a stream created in this session can be ended.'); return; }
+      stream.status = 'ended';
+      closeStreamWatch();
+      renderStreams();
+      renderTournamentBroadcasts();
+      showToast('Your demo stream has ended.');
+    }
+
+    document.getElementById('demo-stream-theme')?.addEventListener('change', function () {
+      const preview = document.getElementById('demo-stream-preview');
+      if (preview) preview.className = `flex aspect-video items-center justify-center rounded-xl border border-slate-700 bg-gradient-to-br ${this.value}`;
+    });
 
     window.onload = function() {
       renderChatList();
@@ -2728,8 +3149,13 @@
       renderCashout();
       renderTournaments();
       renderPlayers();
-      navigateTo('home');
+      renderStreams();
+      if (!loadProfileFromUrl()) navigateTo('home');
     };
+
+    window.addEventListener('popstate', function () {
+      if (!loadProfileFromUrl()) navigateTo('home');
+    });
   </script>
 
 </body>
